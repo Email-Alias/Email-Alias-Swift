@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "Email Alias",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Shows the aliases of the own mailcow server.",
+        "description": "Description of what the extension does."
+    }
+}

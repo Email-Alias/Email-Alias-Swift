@@ -8,7 +8,7 @@ the email(s) with the current domain.
 ## Add code for Safari extension
 
 Compile the angular app from
-[this repository](https://github.com/svenopdehipt/Email-Alias-Angular) and
+[the angular repository](https://github.com/svenopdehipt/Email-Alias-Angular) and
 move (or copy) the aritifacts from dist/one-percent/browser (angular repo) to
 Web Extension/Resources/src (this repository).
 

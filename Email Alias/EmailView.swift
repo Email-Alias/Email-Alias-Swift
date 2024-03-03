@@ -134,9 +134,7 @@ struct EmailView: View {
             .alert("Error at deleting the email", isPresented: $showDeleteAlert) {
                 EmptyView()
             }
-            .alert("Email copied to clipboard", isPresented: $showCopyAlert) {
-                EmptyView()
-            }
+            .toast(message: "Email copied to clipboard", isShowing: $showCopyAlert)
             .alert("Do you really want to delete the email?", isPresented: $showDeleteConfirmAlert) {
                 Button("Yes", role: .destructive) {
                     if let emailsToDelete {

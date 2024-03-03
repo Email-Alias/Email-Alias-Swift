@@ -25,6 +25,8 @@
 		26567FED2B81A0B800E6C8A4 /* EmailQrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */; };
 		265BDB982B73C12300DE21A9 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265BDB972B73C12300DE21A9 /* Email.swift */; };
 		26676A392B6C26C300D8F35E /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */; };
+		2677E3102B950EA100AC9DCA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E30F2B950EA100AC9DCA /* Toast.swift */; };
+		2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E3112B95144200AC9DCA /* ColorExtension.swift */; };
 		26874F6B2B7E82EB006D2DB4 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6A2B7E82EB006D2DB4 /* _locales */; };
 		26874F6D2B7E82EB006D2DB4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6C2B7E82EB006D2DB4 /* images */; };
 		26874F6F2B7E82EB006D2DB4 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6E2B7E82EB006D2DB4 /* manifest.json */; };
@@ -145,6 +147,8 @@
 		26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailQrView.swift; sourceTree = "<group>"; };
 		265BDB972B73C12300DE21A9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaultKeys.swift; sourceTree = "<group>"; };
+		2677E30F2B950EA100AC9DCA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		2677E3112B95144200AC9DCA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		26874F652B7E82EB006D2DB4 /* Web Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Web Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26874F672B7E82EB006D2DB4 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		26874F6A2B7E82EB006D2DB4 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				26A927892B88AA24002B27E1 /* WatchCommunicator.swift */,
 				26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */,
 				26D0D4142B8DE063002A99CD /* LanguageExtension.swift */,
+				2677E3112B95144200AC9DCA /* ColorExtension.swift */,
 				26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */,
 				26A4F7AC2B8BF31000ADD94E /* PreviewController.swift */,
 				26095AC02AE92A3000F272EA /* EmailAliasApp.swift */,
@@ -253,6 +258,7 @@
 				26095AC22AE92A3000F272EA /* EmailView.swift */,
 				26095AD82AE9791400F272EA /* AddView.swift */,
 				26A927852B88A47B002B27E1 /* EmailDetailView.swift */,
+				2677E30F2B950EA100AC9DCA /* Toast.swift */,
 				26095AD62AE9490200F272EA /* Localizable.xcstrings */,
 				26095AC42AE92A3100F272EA /* Assets.xcassets */,
 				26095AC62AE92A3100F272EA /* Email_Alias.entitlements */,
@@ -515,6 +521,7 @@
 				26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */,
 				26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */,
 				26A4F7AD2B8BF31000ADD94E /* PreviewController.swift in Sources */,
+				2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */,
 				26D0D4132B8DE010002A99CD /* ColorSchemeExtension.swift in Sources */,
 				26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */,
 				26095AC32AE92A3000F272EA /* EmailView.swift in Sources */,
@@ -528,6 +535,7 @@
 				26A9278A2B88AA24002B27E1 /* WatchCommunicator.swift in Sources */,
 				26095AC12AE92A3000F272EA /* EmailAliasApp.swift in Sources */,
 				26095AD22AE933E800F272EA /* API.swift in Sources */,
+				2677E3102B950EA100AC9DCA /* Toast.swift in Sources */,
 				26A927432B887434002B27E1 /* KeychainService.swift in Sources */,
 				260D54CA2B8E474B00EA01A1 /* ViewExtension.swift in Sources */,
 				26567FED2B81A0B800E6C8A4 /* EmailQrView.swift in Sources */,

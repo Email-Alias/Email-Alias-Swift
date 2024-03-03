@@ -14,7 +14,7 @@ struct EmailView: View {
 
     @Binding var registered: Bool
     
-    @Query(sort: \Email.id, animation: .default) private var emails: [Email]
+    @Query(sort: \Email.privateComment, animation: .default) private var emails: [Email]
     @State private var search = ""
     
     @State private var comment = ""

@@ -24,7 +24,7 @@ struct EmailView: View {
     @State private var showDeleteAlert = false
     @State private var showCopyAlert = false
     @State private var showDeleteConfirmAlert = false
-    @State private var emailsToDelete: IndexSet? = nil
+    @State private var emailsToDelete: [Email]? = nil
     
     var body: some View {
         NavigationSplitView {
@@ -53,13 +53,22 @@ struct EmailView: View {
                         }
                         .newWindowContextMenu {
                             openWindow(value: email)
+                        } additionalMenuItems: {
+                            #if os(macOS)
+                            Button("Delete") {
+                                emailsToDelete = [email]
+                                showDeleteConfirmAlert = true
+                            }
+                            #endif
                         }
                     }
                 }
+                #if !os(macOS)
                 .onDelete { indexSet in
-                    emailsToDelete = indexSet
+                    emailsToDelete = indexSet.map { emails[$0] }
                     showDeleteConfirmAlert = true
                 }
+                #endif
             }
             .searchable(text: $search, prompt: "Search email")
             .refreshable {
@@ -132,7 +141,7 @@ struct EmailView: View {
                 Button("Yes", role: .destructive) {
                     if let emailsToDelete {
                         Task {
-                            await deleteEmail(indicies: emailsToDelete)
+                            await deleteEmails(emails: emailsToDelete)
                         }
                     }
                 }
@@ -203,16 +212,16 @@ struct EmailView: View {
         return true
     }
     
-    private func deleteEmail(indicies: IndexSet) async {
+    private func deleteEmails(emails: [Email]) async {
         do {
             if !API.testMode {
-                if !(try await API.deleteEmails(emails: indicies.map { emails[$0] })) {
+                if !(try await API.deleteEmails(emails: emails)) {
                     showDeleteAlert = true
                     return
                 }
             }
-            for i in indicies {
-                modelContext.delete(emails[i])
+            for email in emails {
+                modelContext.delete(email)
             }
         }
         catch {

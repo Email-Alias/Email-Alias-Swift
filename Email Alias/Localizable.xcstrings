@@ -59,40 +59,6 @@
         }
       }
     },
-    "agreementPart1" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ich habe die "
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I have read and understood the "
-          }
-        }
-      }
-    },
-    "agreementPart2" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " gelesen und verstanden."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "."
-          }
-        }
-      }
-    },
     "Alias" : {
       "localizations" : {
         "de" : {
@@ -429,23 +395,6 @@
         }
       }
     },
-    "Legal agreements" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechtliche Vereinbarungen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Legal agreements"
-          }
-        }
-      }
-    },
     "Light" : {
       "localizations" : {
         "de" : {
@@ -522,40 +471,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OR"
-          }
-        }
-      }
-    },
-    "privacy policy" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Datenschutzerkärung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "privacy policy"
-          }
-        }
-      }
-    },
-    "Privacy policy" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Datenschutzerkärung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Privacy policy"
           }
         }
       }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
     @Environment(\.locale) private var locale
     
@@ -38,6 +39,12 @@ struct SettingsView: View {
             #endif
             Button("Source code") {
                 openURL(URL(string: "https://github.com/svenopdehipt/Email-Alias-Swift")!)
+            }
+            Button("Clear email cache") {
+                try? modelContext.delete(model: Email.self)
+                #if os(iOS)
+                WatchCommunicator.shared.send(userInfo: ["type": "clearCache"])
+                #endif
             }
         }
         .navigationTitle("Settings")

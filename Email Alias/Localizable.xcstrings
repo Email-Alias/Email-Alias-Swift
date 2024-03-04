@@ -107,6 +107,22 @@
         }
       }
     },
+    "Clear email cache" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Mail Cache leeren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear email cache"
+          }
+        }
+      }
+    },
     "Click on an email to show a qr code with the address" : {
       "localizations" : {
         "de" : {

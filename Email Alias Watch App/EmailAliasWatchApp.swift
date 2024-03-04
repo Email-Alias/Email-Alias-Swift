@@ -49,7 +49,8 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
             catch {}
         case "settings":
             UserDefaults.standard.setValue(userInfo[.language], forKey: .language)
-            break
+        case "clearCache":
+            try? container.mainContext.delete(model: Email.self)
         default:
             break
         }

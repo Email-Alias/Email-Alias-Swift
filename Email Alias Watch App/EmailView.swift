@@ -11,7 +11,7 @@ import SwiftData
 struct EmailView: View {
     @Environment(\.modelContext) private var modelContext
     
-    @Query(sort: \Email.id, animation: .default) private var emails: [Email]
+    @Query(sort: \Email.privateComment, animation: .default) private var emails: [Email]
 
     @State private var showReloadAlert = false
     @State private var showAddAlert = false

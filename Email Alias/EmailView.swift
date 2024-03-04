@@ -148,6 +148,8 @@ struct EmailView: View {
             .navigationSplitViewColumnWidth(ideal: 300)
         } detail: {
             Text("Click on an email to show a qr code with the address")
+                .multilineTextAlignment(.center)
+                .padding()
                 .navigationTitle("Select email")
         }
         .task {

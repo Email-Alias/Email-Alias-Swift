@@ -144,6 +144,8 @@
 		264EF30E2B6BEEDD00070BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		264EF3102B6BEF2A00070BCB /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		264EF3122B6BF1A000070BCB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		265509D72B973BEF0027A3F7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		265509D82B973BEF0027A3F7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailQrView.swift; sourceTree = "<group>"; };
 		265BDB972B73C12300DE21A9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaultKeys.swift; sourceTree = "<group>"; };
@@ -222,6 +224,8 @@
 		26095AB42AE92A3000F272EA = {
 			isa = PBXGroup;
 			children = (
+				265509D82B973BEF0027A3F7 /* LICENSE */,
+				265509D72B973BEF0027A3F7 /* README.md */,
 				264EF3122B6BF1A000070BCB /* .gitignore */,
 				26874F852B7E8A86006D2DB4 /* Shared */,
 				26095ABF2AE92A3000F272EA /* Email Alias */,

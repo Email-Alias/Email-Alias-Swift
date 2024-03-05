@@ -38,7 +38,7 @@ struct SettingsView: View {
             }
             #endif
             Button("Source code") {
-                openURL(URL(string: "https://github.com/svenopdehipt/Email-Alias-Swift")!)
+                openURL(URL(string: "https://github.com/Email-Alias/Email-Alias-Swift")!)
             }
             Button("Clear email cache") {
                 try? modelContext.delete(model: Email.self)

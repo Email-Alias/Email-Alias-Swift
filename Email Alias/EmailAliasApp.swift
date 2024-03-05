@@ -17,18 +17,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 #endif
 
 @main
-struct EmailAliasApp: App {
-    static func getPrivacyPolicy(for locale: Locale) -> URL? {
-        switch locale.language.languageCode?.identifier {
-        case "en":
-            URL(string: "https://github.com/svenopdehipt/Email-Alias-Swift/blob/main/Email Alias/Privacy policy.pdf")!
-        case "de":
-            URL(string: "https://github.com/svenopdehipt/Email-Alias-Swift/blob/main/Email Alias/Datenschutzerklärung.pdf")!
-        default:
-            nil
-        }
-    }
-    
+struct EmailAliasApp: App {    
     @AppStorage(.colorScheme, store: .shared) private var colorScheme = 0
     @AppStorage(.language, store: .shared) private var language = 0
     

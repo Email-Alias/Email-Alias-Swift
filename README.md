@@ -9,7 +9,7 @@ the email(s) with the current domain.
 
 Compile the angular app from
 [the angular repository](https://github.com/Email-Alias/Email-Alias-Angular) and
-move (or copy) the aritifacts from dist/one-percent/browser (angular repo) to
+move (or copy) the aritifacts from dist/email-alias/browser (angular repo) to
 Web Extension/Resources/src (this repository).
 
 ## Compile the app

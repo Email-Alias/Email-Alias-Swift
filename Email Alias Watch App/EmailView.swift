@@ -28,6 +28,16 @@ struct EmailView: View {
                     } label: {
                         Text(email.privateComment)
                     }
+                    .confirmationDialog("Do you really want to delete the email?", isPresented: $showDeleteConfirmAlert) {
+                        Button("Yes", role: .destructive) {
+                            if let emailsToDelete {
+                                Task {
+                                    await deleteEmail(indicies: emailsToDelete)
+                                }
+                            }
+                        }
+                        Button("No", role: .cancel) {}
+                    }
                 }
                 .onDelete { indexSet in
                     emailsToDelete = indexSet
@@ -62,16 +72,6 @@ struct EmailView: View {
         }
         .alert("Error at deleting the email", isPresented: $showDeleteAlert) {
             EmptyView()
-        }
-        .alert("Do you really want to delete the email?", isPresented: $showDeleteConfirmAlert) {
-            Button("Yes", role: .destructive) {
-                if let emailsToDelete {
-                    Task {
-                        await deleteEmail(indicies: emailsToDelete)
-                    }
-                }
-            }
-            Button("No", role: .cancel) {}
         }
         .task {
             await reload()

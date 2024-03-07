@@ -8,13 +8,11 @@
 import SwiftUI
 
 extension View {
-    func newWindowContextMenu<MenuItems>(_ action: @escaping () -> (), @ViewBuilder additionalMenuItems: () -> MenuItems) -> some View where MenuItems : View {
+    func newWindowContextMenu(_ action: @escaping () -> ()) -> some View {
         Group {
             #if os(iOS)
             if UIDevice.current.userInterfaceIdiom == .phone {
-                self.contextMenu {
-                    additionalMenuItems()
-                }
+                self
             }
             else {
                 self.contextMenu {
@@ -24,7 +22,6 @@ extension View {
                         Label("Open in new window", systemImage: "macwindow.badge.plus")
                     }
                 }
-                additionalMenuItems()
             }
             #else
             self.contextMenu {
@@ -33,7 +30,6 @@ extension View {
                 } label: {
                     Label("Open in new window", systemImage: "macwindow.badge.plus")
                 }
-                additionalMenuItems()
             }
             #endif
         }

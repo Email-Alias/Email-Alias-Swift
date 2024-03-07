@@ -53,14 +53,28 @@ struct EmailView: View {
                         }
                         .newWindowContextMenu {
                             openWindow(value: email)
-                        } additionalMenuItems: {
-                            #if os(macOS)
-                            Button("Delete") {
-                                emailsToDelete = [email]
-                                showDeleteConfirmAlert = true
-                            }
-                            #endif
                         }
+                    }
+                    #if os(macOS)
+                    .swipeActions {
+                        Button {
+                            emailsToDelete = [email]
+                            showDeleteConfirmAlert = true
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        .tint(Color.red)
+                    }
+                    #endif
+                    .confirmationDialog("Do you really want to delete the email?", isPresented: $showDeleteConfirmAlert, titleVisibility: .visible) {
+                        Button("Yes", role: .destructive) {
+                            if let emailsToDelete {
+                                Task {
+                                    await deleteEmails(emails: emailsToDelete)
+                                }
+                            }
+                        }
+                        Button("No", role: .cancel) {}
                     }
                 }
                 #if !os(macOS)
@@ -135,16 +149,6 @@ struct EmailView: View {
                 EmptyView()
             }
             .toast(message: "Email copied to clipboard", isShowing: $showCopyAlert)
-            .alert("Do you really want to delete the email?", isPresented: $showDeleteConfirmAlert) {
-                Button("Yes", role: .destructive) {
-                    if let emailsToDelete {
-                        Task {
-                            await deleteEmails(emails: emailsToDelete)
-                        }
-                    }
-                }
-                Button("No", role: .cancel) {}
-            }
             .navigationSplitViewColumnWidth(ideal: 300)
         } detail: {
             Text("Click on an email to show a qr code with the address")

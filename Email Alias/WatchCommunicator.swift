@@ -20,14 +20,12 @@ final class WatchCommunicator: NSObject, WCSessionDelegate {
     }
     
     func send(userInfo: [String: Any]) {
-        if session.isPaired {
-            if session.activationState == .activated {
-                session.transferUserInfo(userInfo)
-            }
-            else {
-                cachedUserInfo = userInfo
-                session.activate()
-            }
+        if session.activationState == .activated {
+            session.transferUserInfo(userInfo)
+        }
+        else {
+            cachedUserInfo = userInfo
+            session.activate()
         }
     }
     

@@ -49,7 +49,7 @@ struct API {
     
     static func addEmail(emails: [Email], address: String, privateComment: String) async throws -> Bool {
         let goto = UserDefaults.standard.string(forKey: .email)!
-        let email = EmailReq(active: "1", sogoVisible: "0", address: address, goto: goto, privateComment: privateComment)
+        let email = EmailReq(active: true, sogoVisible: false, address: address, goto: goto, privateComment: privateComment)
         var req = baseReq(url: "add/alias")
         req.httpMethod = "POST"
         req.httpBody = try encoder.encode(email)
@@ -72,8 +72,8 @@ struct API {
 }
 
 private struct EmailReq: Codable {
-    let active: String
-    let sogoVisible: String
+    let active: Bool
+    let sogoVisible: Bool
     let address: String
     let goto: String
     let privateComment: String

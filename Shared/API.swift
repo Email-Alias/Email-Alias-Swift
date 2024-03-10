@@ -64,6 +64,13 @@ struct API {
         return try await send(basicRequest: req)
     }
     
+    static func updateActiveFor(email: Email) async throws -> Bool {
+        var req = baseReq(url: "edit/alias")
+        req.httpMethod = "POST"
+        req.httpBody = try encoder.encode(ActiveReq(items: [email.id], attr: ActiveReqEmail(active: email.active)))
+        return try await send(basicRequest: req)
+    }
+    
     private static func send(basicRequest req: URLRequest) async throws -> Bool {
         let (res, _) = try await URLSession.shared.data(for: req)
         let jsonRes = try decoder.decode([Result].self, from: res)
@@ -71,12 +78,21 @@ struct API {
     }
 }
 
-private struct EmailReq: Codable {
+private struct EmailReq: Encodable {
     let active: Bool
     let sogoVisible: Bool
     let address: String
     let goto: String
     let privateComment: String
+}
+
+private struct ActiveReq: Encodable {
+    let items: [Int]
+    let attr: ActiveReqEmail
+}
+
+private struct ActiveReqEmail: Encodable {
+    let active: Bool
 }
 
 struct Result: Decodable {

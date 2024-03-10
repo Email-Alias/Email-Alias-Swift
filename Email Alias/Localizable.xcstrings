@@ -379,6 +379,22 @@
         }
       }
     },
+    "Error at updating the email" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler beim Aktualisieren der E-Mails"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error at updating the email"
+          }
+        }
+      }
+    },
     "German" : {
       "localizations" : {
         "de" : {

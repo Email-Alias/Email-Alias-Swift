@@ -23,6 +23,7 @@ struct EmailView: View {
     @State private var showAddAlert = false
     @State private var showDeleteAlert = false
     @State private var showCopyAlert = false
+    @State private var showEditAlert = false
     @State private var showDeleteConfirmAlert = false
     @State private var emailsToDelete: [Email]? = nil
     
@@ -49,6 +50,16 @@ struct EmailView: View {
                                     email.active
                                 } set: { value in
                                     email.active = value
+                                    Task {
+                                        do {
+                                            if !(try await API.updateActiveFor(email: email)) {
+                                                showEditAlert = true
+                                            }
+                                        }
+                                        catch {
+                                            showEditAlert = true
+                                        }
+                                    }
                                 }
                             )
                             .toggleStyle(CheckboxToggleStyle())
@@ -155,6 +166,9 @@ struct EmailView: View {
                 EmptyView()
             }
             .alert("Error at deleting the email", isPresented: $showDeleteAlert) {
+                EmptyView()
+            }
+            .alert("Error at updating the email", isPresented: $showEditAlert) {
                 EmptyView()
             }
             .toast(message: "Email copied to clipboard", isShowing: $showCopyAlert)

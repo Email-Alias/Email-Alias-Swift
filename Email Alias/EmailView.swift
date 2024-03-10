@@ -44,6 +44,13 @@ struct EmailView: View {
                                     .font(.caption)
                             }
                             Spacer()
+                            Button {
+                                copyEmailToPasteboard(email)
+                            } label: {
+                                Image(systemName: "rectangle.portrait.on.rectangle.portrait")
+                                    .accessibilityLabel(Text("Copy to clipboard"))
+                            }
+                            .buttonStyle(PlainButtonStyle())
                             Toggle(
                                 "",
                                 isOn: .init {
@@ -63,13 +70,6 @@ struct EmailView: View {
                                 }
                             )
                             .toggleStyle(CheckboxToggleStyle())
-                            Button {
-                                copyEmailToPasteboard(email)
-                            } label: {
-                                Image(systemName: "rectangle.portrait.on.rectangle.portrait")
-                                    .accessibilityLabel(Text("Copy to clipboard"))
-                            }
-                            .buttonStyle(PlainButtonStyle())
                         }
                         .newWindowContextMenu {
                             openWindow(value: email)

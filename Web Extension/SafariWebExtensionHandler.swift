@@ -18,6 +18,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         switch request?.userInfo?[SFExtensionMessageKey] as? String {
         case "getAliases":
             var emailFetchDescriptor = FetchDescriptor<Email>()
+            emailFetchDescriptor.predicate = #Predicate { $0.active }
             emailFetchDescriptor.sortBy = [SortDescriptor(\.privateComment)]
             guard let emails = try? container.mainContext.fetch(emailFetchDescriptor) else {
                 context.completeRequest(returningItems: nil)

@@ -11,6 +11,7 @@ import SwiftData
 
 private let container = try! ModelContainer(
     for: Email.self,
+    migrationPlan: EmailsMigrationPlan.self,
     configurations: ModelConfiguration(for: Email.self, isStoredInMemoryOnly: false)
 )
 

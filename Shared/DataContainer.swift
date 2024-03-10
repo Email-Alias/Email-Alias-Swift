@@ -10,6 +10,7 @@ import SwiftData
 
 let container = try! ModelContainer(
     for: Email.self,
+    migrationPlan: EmailsMigrationPlan.self,
     configurations: ModelConfiguration(url: URL.storeURL(for: "group.com.opdehipt.Email-Alias", databaseName: "DataModel"))
 )
 

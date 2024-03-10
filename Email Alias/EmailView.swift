@@ -43,6 +43,15 @@ struct EmailView: View {
                                     .font(.caption)
                             }
                             Spacer()
+                            Toggle(
+                                "",
+                                isOn: .init {
+                                    email.active
+                                } set: { value in
+                                    email.active = value
+                                }
+                            )
+                            .toggleStyle(CheckboxToggleStyle())
                             Button {
                                 copyEmailToPasteboard(email)
                             } label: {

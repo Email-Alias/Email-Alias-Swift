@@ -24,6 +24,7 @@
 		264EF3132B6BF1A000070BCB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 264EF3122B6BF1A000070BCB /* .gitignore */; };
 		26567FED2B81A0B800E6C8A4 /* EmailQrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */; };
 		265BDB982B73C12300DE21A9 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265BDB972B73C12300DE21A9 /* Email.swift */; };
+		266332C42B9DFEB200C3F380 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */; };
 		26676A392B6C26C300D8F35E /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */; };
 		2677E3102B950EA100AC9DCA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E30F2B950EA100AC9DCA /* Toast.swift */; };
 		2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E3112B95144200AC9DCA /* ColorExtension.swift */; };
@@ -148,6 +149,7 @@
 		265509D82B973BEF0027A3F7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailQrView.swift; sourceTree = "<group>"; };
 		265BDB972B73C12300DE21A9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
+		266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaultKeys.swift; sourceTree = "<group>"; };
 		2677E30F2B950EA100AC9DCA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		2677E3112B95144200AC9DCA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				26D0D4142B8DE063002A99CD /* LanguageExtension.swift */,
 				2677E3112B95144200AC9DCA /* ColorExtension.swift */,
 				26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */,
+				266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */,
 				26A4F7AC2B8BF31000ADD94E /* PreviewController.swift */,
 				26095AC02AE92A3000F272EA /* EmailAliasApp.swift */,
 				26A4F7A02B8B61B800ADD94E /* SettingsView.swift */,
@@ -536,6 +539,7 @@
 				26A927812B88A296002B27E1 /* ImageExtension.swift in Sources */,
 				26874F892B7E8AE4006D2DB4 /* DataContainer.swift in Sources */,
 				26C4320F2B8E79BA00FA2540 /* WebStringExtension.swift in Sources */,
+				266332C42B9DFEB200C3F380 /* CheckboxToggleStyle.swift in Sources */,
 				26A9278A2B88AA24002B27E1 /* WatchCommunicator.swift in Sources */,
 				26095AC12AE92A3000F272EA /* EmailAliasApp.swift in Sources */,
 				26095AD22AE933E800F272EA /* API.swift in Sources */,

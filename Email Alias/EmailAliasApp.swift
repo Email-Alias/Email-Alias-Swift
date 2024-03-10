@@ -62,15 +62,6 @@ struct EmailAliasApp: App {
             }
             .modelContainer(container)
         }
-        #else
-        WindowGroup(for: URL.self) { url in
-            if let url = url.wrappedValue {
-                PreviewController(url: url)
-            }
-            else {
-                EmptyView()
-            }
-        }
         #endif
     }
 }

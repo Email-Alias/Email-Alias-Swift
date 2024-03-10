@@ -48,7 +48,6 @@
 		26A4F7A72B8B8D1E00ADD94E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
 		26A4F7A82B8B8D5E00ADD94E /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */; };
 		26A4F7A92B8B8D6100ADD94E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
-		26A4F7AD2B8BF31000ADD94E /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7AC2B8BF31000ADD94E /* PreviewController.swift */; };
 		26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */; };
 		26A4F7C92B8CA8CD00ADD94E /* src in Resources */ = {isa = PBXBuildFile; fileRef = 26A4F7C82B8CA8CD00ADD94E /* src */; };
 		26A4F7E12B8D17F900ADD94E /* third-party-licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */; };
@@ -169,7 +168,6 @@
 		26A4F7A02B8B61B800ADD94E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		26A4F7A22B8B8CF100ADD94E /* SharedWebUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedWebUserDefaultKeys.swift; sourceTree = "<group>"; };
 		26A4F7A62B8B8D1E00ADD94E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		26A4F7AC2B8BF31000ADD94E /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWindowContextMenu.swift; sourceTree = "<group>"; };
 		26A4F7C82B8CA8CD00ADD94E /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "third-party-licenses.txt"; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 				2677E3112B95144200AC9DCA /* ColorExtension.swift */,
 				26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */,
 				266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */,
-				26A4F7AC2B8BF31000ADD94E /* PreviewController.swift */,
 				26095AC02AE92A3000F272EA /* EmailAliasApp.swift */,
 				26A4F7A02B8B61B800ADD94E /* SettingsView.swift */,
 				264EF30E2B6BEEDD00070BCB /* ContentView.swift */,
@@ -527,7 +524,6 @@
 				26095AD42AE93F4500F272EA /* WatchStringExtension.swift in Sources */,
 				26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */,
 				26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */,
-				26A4F7AD2B8BF31000ADD94E /* PreviewController.swift in Sources */,
 				2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */,
 				26D0D4132B8DE010002A99CD /* ColorSchemeExtension.swift in Sources */,
 				26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */,

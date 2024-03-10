@@ -60,6 +60,7 @@ struct EmailAliasApp: App {
                     .language(language)
                     .padding()
             }
+            .modelContainer(container)
         }
         #else
         WindowGroup(for: URL.self) { url in

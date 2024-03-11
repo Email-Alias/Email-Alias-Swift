@@ -198,24 +198,7 @@ struct EmailView: View {
         if !API.testMode {
             do {
                 let emails = try await API.getEmails()
-                for email in emails {
-                    if let cachedEmail = self.emails.first(where: { $0.id == email.id }) {
-                        if cachedEmail.active != email.active {
-                            modelContext.delete(cachedEmail)
-                            modelContext.insert(email)
-                        }
-                    }
-                    else {
-                        modelContext.insert(email)
-                    }
-                }
-                
-                let deleteEmails = self.emails.filter { email in
-                    !emails.contains { email.id == $0.id }
-                }
-                for email in deleteEmails {
-                    modelContext.delete(email)
-                }
+                try modelContext.save(emails: emails)
             }
             catch {
                 showReloadAlert = true

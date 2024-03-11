@@ -28,6 +28,8 @@
 		26676A392B6C26C300D8F35E /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */; };
 		2677E3102B950EA100AC9DCA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E30F2B950EA100AC9DCA /* Toast.swift */; };
 		2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E3112B95144200AC9DCA /* ColorExtension.swift */; };
+		26781B7C2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */; };
+		26781B7D2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */; };
 		26874F6B2B7E82EB006D2DB4 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6A2B7E82EB006D2DB4 /* _locales */; };
 		26874F6D2B7E82EB006D2DB4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6C2B7E82EB006D2DB4 /* images */; };
 		26874F6F2B7E82EB006D2DB4 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6E2B7E82EB006D2DB4 /* manifest.json */; };
@@ -152,6 +154,7 @@
 		26676A382B6C26C300D8F35E /* SharedUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaultKeys.swift; sourceTree = "<group>"; };
 		2677E30F2B950EA100AC9DCA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		2677E3112B95144200AC9DCA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContextExtension.swift; sourceTree = "<group>"; };
 		26874F652B7E82EB006D2DB4 /* Web Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Web Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26874F672B7E82EB006D2DB4 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		26874F6A2B7E82EB006D2DB4 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 				26A4F7A62B8B8D1E00ADD94E /* Language.swift */,
 				26874F882B7E8AE4006D2DB4 /* DataContainer.swift */,
 				265BDB972B73C12300DE21A9 /* Email.swift */,
+				26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */,
 				26A927422B887434002B27E1 /* KeychainService.swift */,
 				26095AD12AE933E800F272EA /* API.swift */,
 				26A927612B888B14002B27E1 /* TestEmails.swift */,
@@ -541,6 +545,7 @@
 				26095AD22AE933E800F272EA /* API.swift in Sources */,
 				2677E3102B950EA100AC9DCA /* Toast.swift in Sources */,
 				26A927432B887434002B27E1 /* KeychainService.swift in Sources */,
+				26781B7C2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */,
 				260D54CA2B8E474B00EA01A1 /* ViewExtension.swift in Sources */,
 				26567FED2B81A0B800E6C8A4 /* EmailQrView.swift in Sources */,
 				26D0D4152B8DE063002A99CD /* LanguageExtension.swift in Sources */,
@@ -570,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26A927752B889D14002B27E1 /* EmailQrView.swift in Sources */,
+				26781B7D2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */,
 				26A9276A2B888D90002B27E1 /* RegisterView.swift in Sources */,
 				26A9274E2B887906002B27E1 /* ContentView.swift in Sources */,
 				260D54C62B8E466F00EA01A1 /* Language.swift in Sources */,

@@ -16,6 +16,7 @@ struct CheckboxToggleStyle: ToggleStyle {
             Image(systemName: configuration.isOn ? "checkmark.square" : "square")
             configuration.label
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 #endif

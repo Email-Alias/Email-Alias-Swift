@@ -57,7 +57,7 @@ enum EmailsSchemaV1: VersionedSchema {
 }
 
 enum EmailsSchemaV2: VersionedSchema {
-    static var versionIdentifier = Schema.Version(1, 0, 0)
+    static var versionIdentifier = Schema.Version(2, 0, 0)
 
     static var models: [any PersistentModel.Type] {
         [Email.self]

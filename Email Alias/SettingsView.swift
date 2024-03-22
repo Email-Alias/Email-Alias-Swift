@@ -52,8 +52,6 @@ struct SettingsView: View {
 }
 
 #if !os(macOS)
-
-
 struct SettingsButton: View {
     var body: some View {
         NavigationLink {

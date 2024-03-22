@@ -64,6 +64,4 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             context.completeRequest(returningItems: nil)
         }
     }
-
-    
 }

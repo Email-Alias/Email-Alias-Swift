@@ -62,7 +62,7 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
 struct EmailAliasWatchApp: App {
     @WKApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
-    @AppStorage(.language) private var language = 0
+    @AppStorage(.language) private var language: Language = .system
     
     var body: some Scene {
         WindowGroup {

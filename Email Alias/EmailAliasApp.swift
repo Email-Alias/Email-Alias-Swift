@@ -18,8 +18,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 @main
 struct EmailAliasApp: App {    
-    @AppStorage(.colorScheme, store: .shared) private var colorScheme = 0
-    @AppStorage(.language, store: .shared) private var language = 0
+    @AppStorage(.colorScheme, store: .shared) private var colorScheme: ColorScheme = .system
+    @AppStorage(.language, store: .shared) private var language: Language = .system
     
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -32,7 +32,7 @@ struct EmailAliasApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .colorScheme(colorScheme)
+                .preferredColorScheme(colorScheme.systemTheme)
                 .language(language)
         }
         .modelContainer(container)
@@ -48,7 +48,7 @@ struct EmailAliasApp: App {
                     EmptyView()
                 }
             }
-            .colorScheme(colorScheme)
+            .preferredColorScheme(colorScheme.systemTheme)
             .language(language)
         }
         
@@ -56,30 +56,11 @@ struct EmailAliasApp: App {
         Settings {
             NavigationStack {
                 SettingsView()
-                    .colorScheme(colorScheme)
+                    .preferredColorScheme(colorScheme.systemTheme)
                     .language(language)
                     .padding()
             }
             .modelContainer(container)
-        }
-        #endif
-    }
-}
-
-private extension View {
-    func colorScheme(_ scheme: Int) -> some View {
-        #if os(visionOS)
-        self
-        #else
-        Group {
-            switch ColorScheme(rawValue: scheme) {
-            case .system, nil:
-                self
-            case .light:
-                self.preferredColorScheme(.light)
-            case .dark:
-                self.preferredColorScheme(.dark)
-            }
         }
         #endif
     }

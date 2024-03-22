@@ -12,8 +12,8 @@ struct SettingsView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.locale) private var locale
     
-    @AppStorage(.colorScheme, store: .shared) private var colorScheme = 0
-    @AppStorage(.language, store: .shared) private var language = 0
+    @AppStorage(.colorScheme, store: .shared) private var colorScheme: ColorScheme = .system
+    @AppStorage(.language, store: .shared) private var language: Language = .system
     
     var body: some View {
         Form {
@@ -33,7 +33,7 @@ struct SettingsView: View {
             .onChange(of: language) {
                 WatchCommunicator.shared.send(userInfo: [
                     "type": "settings",
-                    .language: language,
+                    .language: language.rawValue,
                 ])
             }
             #endif

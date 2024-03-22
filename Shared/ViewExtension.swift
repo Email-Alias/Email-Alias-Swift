@@ -8,9 +8,9 @@
 import SwiftUI
 
 extension View {
-    func language(_ language: Int) -> some View {
+    func language(_ language: Language) -> some View {
         Group {
-            if let locale = Language(rawValue: language)?.locale {
+            if let locale = language.locale {
                 self.environment(\.locale, locale)
             }
             else {

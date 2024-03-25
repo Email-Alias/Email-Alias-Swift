@@ -12,7 +12,7 @@ extension ModelContext {
         let cachedEmails = try fetch(FetchDescriptor<Email>())
         for email in emails {
             if let cachedEmail = cachedEmails.first(where: { $0.id == email.id }) {
-                if cachedEmail.active != email.active {
+                if cachedEmail != email {
                     delete(cachedEmail)
                     insert(email)
                 }

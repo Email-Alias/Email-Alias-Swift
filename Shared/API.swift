@@ -44,7 +44,7 @@ struct API {
         let goto = UserDefaults.standard.string(forKey: .email)!
         let req = baseReq(url: "get/alias/all")
         let (res, _) = try await URLSession.shared.data(for: req)
-        return try decoder.decode([Email].self, from: res).filter { $0.goto == goto && !$0.privateComment.isEmpty }
+        return try decoder.decode([Email].self, from: res).filter { $0.goto.contains(goto) && !$0.privateComment.isEmpty }
     }
     
     static func addEmail(emails: [Email], address: String, privateComment: String) async throws -> Bool {
@@ -64,10 +64,10 @@ struct API {
         return try await send(basicRequest: req)
     }
     
-    static func updateActiveFor(email: Email) async throws -> Bool {
+    static func update(email: Email) async throws -> Bool {
         var req = baseReq(url: "edit/alias")
         req.httpMethod = "POST"
-        req.httpBody = try encoder.encode(ActiveReq(items: [email.id], attr: ActiveReqEmail(active: email.active)))
+        req.httpBody = try encoder.encode(UpdateReq(items: [email.id], attr: email))
         return try await send(basicRequest: req)
     }
     
@@ -86,13 +86,9 @@ private struct EmailReq: Encodable {
     let privateComment: String
 }
 
-private struct ActiveReq: Encodable {
+private struct UpdateReq: Encodable {
     let items: [Int]
-    let attr: ActiveReqEmail
-}
-
-private struct ActiveReqEmail: Encodable {
-    let active: Bool
+    let attr: Email
 }
 
 struct Result: Decodable {

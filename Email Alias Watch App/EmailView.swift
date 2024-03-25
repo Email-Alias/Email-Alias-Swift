@@ -98,7 +98,7 @@ struct EmailView: View {
         if API.testMode {
             let goto = UserDefaults.standard.string(forKey: .email)!
             let nextID = UserDefaults.standard.integer(forKey: .nextID)
-            let email = Email(id: nextID, address: address, privateComment: comment, goto: goto)
+            let email = Email(id: nextID, address: address, privateComment: comment, goto: [goto])
             modelContext.insert(email)
             UserDefaults.standard.set(nextID &+ 1, forKey: .nextID)
         }

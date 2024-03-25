@@ -59,7 +59,7 @@ struct EmailView: View {
                                     email.active = value
                                     Task {
                                         do {
-                                            if !(try await API.updateActiveFor(email: email)) {
+                                            if !(try await API.update(email: email)) {
                                                 showEditAlert = true
                                             }
                                         }
@@ -123,7 +123,7 @@ struct EmailView: View {
                 EditButton()
                 #endif
                 NavigationLink {
-                    AddView(emails: emails, addEmail: addEmail(address:comment:))
+                    AddView(emails: emails, addEmail: addEmail(address:comment:additionalGoto:))
                 } label: {
                     #if !os(macOS)
                     Text("Add")
@@ -206,11 +206,18 @@ struct EmailView: View {
         }
     }
     
-    private func addEmail(address: String, comment: String) async -> Bool {
+    private func addEmail(address: String, comment: String, additionalGoto: String) async -> Bool {
         if API.testMode {
             let goto = UserDefaults.standard.string(forKey: .email)!
             let nextID = UserDefaults.standard.integer(forKey: .nextID)
-            let email = Email(id: nextID, address: address, privateComment: comment, goto: goto)
+            let gotos: [String]
+            if additionalGoto.isEmpty {
+                gotos = [goto]
+            }
+            else {
+                gotos = additionalGoto.split(separator: ",").map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) }) + [goto]
+            }
+            let email = Email(id: nextID, address: address, privateComment: comment, goto: gotos)
             modelContext.insert(email)
             UserDefaults.standard.set(nextID &+ 1, forKey: .nextID)
         }

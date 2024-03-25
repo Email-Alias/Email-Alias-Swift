@@ -9,16 +9,18 @@ import SwiftUI
 
 struct AddView: View {
     let emails: [Email]
-    let addEmail: (String, String) async -> Bool
+    let addEmail: (String, String, String) async -> Bool
 
     @Environment(\.dismiss) private var dismiss
     @AppStorage(.email) private var email = ""
     
     @FocusState private var aliasFocused: Bool
     @FocusState private var descriptionFocused: Bool
+    @FocusState private var additionalGotoFocused: Bool
     
     @State private var alias = ""
     @State private var comment = ""
+    @State private var additionalGoto = ""
     @State private var showExistsAlert = false
     @State private var showFormAlert = false
     
@@ -54,6 +56,14 @@ struct AddView: View {
                 .autocorrectionDisabled()
                 .focused($descriptionFocused)
                 .onSubmit {
+                    additionalGotoFocused = true
+                }
+            Spacer()
+                .frame(height: 20)
+            TextField("Additional destinations", text: $additionalGoto)
+                .autocorrectionDisabled()
+                .focused($additionalGotoFocused)
+                .onSubmit {
                     Task {
                         await addEmail()
                     }
@@ -88,10 +98,11 @@ struct AddView: View {
             return
         }
         
-        if let domain = email.split(separator: "@").last, await addEmail("\(alias)@\(domain)", comment) {
+        if let domain = email.split(separator: "@").last, await addEmail("\(alias)@\(domain)", comment, additionalGoto) {
             dismiss()
             comment = ""
             alias = ""
+            additionalGoto = ""
         }
         else {
             showExistsAlert = true
@@ -101,7 +112,7 @@ struct AddView: View {
 
 #Preview {
     NavigationStack {
-        AddView(emails: testEmails) { _, _ in
+        AddView(emails: testEmails) { _, _, _ in
             true
         }
     }

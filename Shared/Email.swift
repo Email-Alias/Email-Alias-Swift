@@ -195,7 +195,7 @@ enum EmailsSchemaV3: VersionedSchema {
 }
 
 enum EmailsMigrationPlan: SchemaMigrationPlan {
-    private static var v2EmailsToMigrate: [EmailsSchemaV2.Email] = []
+    private static var v2EmailsToMigrate: [(Int, String, String, String, Bool)] = []
     
     static var schemas: [any VersionedSchema.Type] {
         [EmailsSchemaV1.self, EmailsSchemaV2.self, EmailsSchemaV3.self]
@@ -203,12 +203,15 @@ enum EmailsMigrationPlan: SchemaMigrationPlan {
     
     private static let migrateV1toV2 = MigrationStage.lightweight(fromVersion: EmailsSchemaV1.self, toVersion: EmailsSchemaV2.self)
     private static let migrateV2toV3 = MigrationStage.custom(fromVersion: EmailsSchemaV2.self, toVersion: EmailsSchemaV3.self) { context in
-        v2EmailsToMigrate = try context.fetch(FetchDescriptor<EmailsSchemaV2.Email>())
+        let emails = try context.fetch(FetchDescriptor<EmailsSchemaV2.Email>())
+        v2EmailsToMigrate = emails.map { email in
+            (email.id, email.address, email.privateComment, email.goto, email.active)
+        }
         try context.delete(model: EmailsSchemaV2.Email.self)
     } didMigrate: { context in
         for email in v2EmailsToMigrate {
-            let emailV3 = EmailsSchemaV3.Email(id: email.id, address: email.address, privateComment: email.privateComment, goto: [email.goto], active: email.active)
-            context.insert(emailV3)
+            let (id, address, privateComment, goto, active) = email
+            let emailV3 = EmailsSchemaV3.Email(id: id, address: address, privateComment: privateComment, goto: [goto], active: active)
         }
     }
 

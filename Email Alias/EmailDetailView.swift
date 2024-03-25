@@ -10,7 +10,7 @@ import SwiftUI
 struct EmailDetailView: View {
     let email: Email
     
-    @AppStorage(.email, store: .shared) private var address: String = ""
+    @AppStorage(.email) private var address: String = ""
     @State private var additionalGotos = ""
     
     var body: some View {

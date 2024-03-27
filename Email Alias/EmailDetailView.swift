@@ -16,8 +16,19 @@ struct EmailDetailView: View {
     var body: some View {
         VStack {
             EmailQRView(email: email)
+            Spacer()
+                .frame(height: 20)
             Text(email.address)
+            Spacer()
+                .frame(height: 20)
+            HStack {
+                Text("Additional destinations")
+                    .font(.subheadline)
+                Spacer()
+            }
             TextField("Additional destinations", text: $additionalGotos)
+            Spacer()
+            .frame(height: 50)
             Button("Save") {
                 Task {
                     email.goto = [address] + additionalGotos.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }

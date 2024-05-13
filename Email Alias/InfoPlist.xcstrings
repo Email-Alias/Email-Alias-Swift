@@ -35,6 +35,23 @@
           }
         }
       }
+    },
+    "NSFaceIDUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese App benötigt TouchID/FaceID/OpticID um den Benutzer zu autorisieren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app needs TouchID/FaceID/OpticID to authorize the user."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

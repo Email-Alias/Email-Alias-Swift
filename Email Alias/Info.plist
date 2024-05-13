@@ -9,5 +9,7 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>This app needs TouchID/FaceID to authorize the user.</string>
 </dict>
 </plist>

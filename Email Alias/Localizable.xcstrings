@@ -459,6 +459,58 @@
         }
       }
     },
+    "Login with TouchID/FaceID" : {
+      "localizations" : {
+        "de" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mit OpticID einloggen"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mit TouchID einloggen"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mit TouchID/FaceID einloggen"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Login with OpticID"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Login with TouchID"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Login with TouchID/FaceID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Logout" : {
       "localizations" : {
         "de" : {
@@ -519,6 +571,58 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OR"
+          }
+        }
+      }
+    },
+    "Protect app with TouchID/FaceID" : {
+      "localizations" : {
+        "de" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "App mit OpticID sichern"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "App mit TouchID sichern"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "App mit TouchID/FaceID sichern"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Protect app with OpticID"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Protect app with TouchID"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Protect app with TouchID/FaceID"
+                }
+              }
+            }
           }
         }
       }
@@ -732,6 +836,59 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Theme"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "This app needs TouchID/FaceID to authorize the user." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Diese App benötigt OpticID um den Benutzer zu autorisieren."
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Diese App benötigt TouchID um den Benutzer zu autorisieren."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Diese App benötigt TouchID/FaceID um den Benutzer zu autorisieren."
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "This app needs OpticID to authorize the user."
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "This app needs TouchID to authorize the user."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "This app needs TouchID/FaceID to authorize the user."
                 }
               }
             }

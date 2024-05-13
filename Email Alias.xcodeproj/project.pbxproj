@@ -30,6 +30,7 @@
 		2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E3112B95144200AC9DCA /* ColorExtension.swift */; };
 		26781B7C2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */; };
 		26781B7D2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */; };
+		267A675C2BF2282E007DED42 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A675B2BF2282E007DED42 /* UserDefaultsKeys.swift */; };
 		26874F6B2B7E82EB006D2DB4 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6A2B7E82EB006D2DB4 /* _locales */; };
 		26874F6D2B7E82EB006D2DB4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6C2B7E82EB006D2DB4 /* images */; };
 		26874F6F2B7E82EB006D2DB4 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 26874F6E2B7E82EB006D2DB4 /* manifest.json */; };
@@ -155,6 +156,7 @@
 		2677E30F2B950EA100AC9DCA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		2677E3112B95144200AC9DCA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContextExtension.swift; sourceTree = "<group>"; };
+		267A675B2BF2282E007DED42 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		26874F652B7E82EB006D2DB4 /* Web Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Web Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26874F672B7E82EB006D2DB4 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		26874F6A2B7E82EB006D2DB4 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		26095ABF2AE92A3000F272EA /* Email Alias */ = {
 			isa = PBXGroup;
 			children = (
+				267A675B2BF2282E007DED42 /* UserDefaultsKeys.swift */,
 				26A927892B88AA24002B27E1 /* WatchCommunicator.swift */,
 				26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */,
 				26D0D4142B8DE063002A99CD /* LanguageExtension.swift */,
@@ -524,6 +527,7 @@
 				26A927632B888B18002B27E1 /* TestEmails.swift in Sources */,
 				26A927672B888BEE002B27E1 /* SharedWatchUserDefaultKeys.swift in Sources */,
 				26A4F7A32B8B8CF100ADD94E /* SharedWebUserDefaultKeys.swift in Sources */,
+				267A675C2BF2282E007DED42 /* UserDefaultsKeys.swift in Sources */,
 				26676A392B6C26C300D8F35E /* SharedUserDefaultKeys.swift in Sources */,
 				26095AD42AE93F4500F272EA /* WatchStringExtension.swift in Sources */,
 				26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */,

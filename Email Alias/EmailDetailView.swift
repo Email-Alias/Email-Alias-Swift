@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct EmailDetailView: View {
     let email: Email
@@ -57,8 +58,9 @@ struct EmailDetailView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .sampleEmails) {
+    @Previewable @Query var emails: [Email]
     NavigationStack {
-        EmailDetailView(email: testEmails.first!)
+        EmailDetailView(email: emails.first!)
     }
 }

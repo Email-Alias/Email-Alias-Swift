@@ -23,35 +23,47 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
         session.activate()
     }
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {}
+    nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: (any Error)?) {}
     
-    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+    nonisolated func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         switch userInfo["type"] as? String {
         case "register":
             UserDefaults.standard.setValue(userInfo[.domain], forKey: .domain)
             UserDefaults.standard.setValue(userInfo[.email], forKey: .email)
             let _ = save(valueToKeychain: userInfo[.apiKey] as! String, withKey: .apiKey)
             
-            if API.testMode {
-                UserDefaults.standard.set(7, forKey: .nextID)
-                insertTestEmails(into: container.mainContext)
+            Task {
+                if await API.testMode {
+                    UserDefaults.standard.set(7, forKey: .nextID)
+                    await MainActor.run {
+                        insertTestEmails(into: container.mainContext)
+                    }
+                }
+                
+                UserDefaults.standard.setValue(true, forKey: .registered)
             }
-            
-            UserDefaults.standard.setValue(true, forKey: .registered)
         case "logout":
-            do {
-                try container.mainContext.delete(model: Email.self)
-                UserDefaults.standard.removeObject(forKey: .domain)
-                UserDefaults.standard.removeObject(forKey: .email)
-                let _ = removeFromKeychain(withKey: .apiKey)
-                UserDefaults.standard.removeObject(forKey: .nextID)
-                UserDefaults.standard.setValue(false, forKey: .registered)
+            Task {
+                do {
+                    try await MainActor.run {
+                        try container.mainContext.delete(model: Email.self)
+                    }
+                    UserDefaults.standard.removeObject(forKey: .domain)
+                    UserDefaults.standard.removeObject(forKey: .email)
+                    let _ = removeFromKeychain(withKey: .apiKey)
+                    UserDefaults.standard.removeObject(forKey: .nextID)
+                    UserDefaults.standard.setValue(false, forKey: .registered)
+                }
+                catch {}
             }
-            catch {}
         case "settings":
             UserDefaults.standard.setValue(userInfo[.language], forKey: .language)
         case "clearCache":
-            try? container.mainContext.delete(model: Email.self)
+            Task {
+                await MainActor.run {
+                    try? container.mainContext.delete(model: Email.self)
+                }
+            }
         default:
             break
         }

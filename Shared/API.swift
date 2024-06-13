@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 struct API {
     static let testDomain = "test.mail.opdehipt.com"
     static let testEmail = "test@example.com"

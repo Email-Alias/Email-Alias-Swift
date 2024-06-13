@@ -1,13 +1,14 @@
 //
 //  StringExtension.swift
-//  Web Extension
+//  Email Alias
 //
-//  Created by Sven Op de Hipt on 16.02.24.
+//  Created by Sven Op de Hipt on 12.06.24.
 //
 
 import Foundation
 
 extension String {
+    @MainActor
     var localized: String {
         if let language = Language(rawValue: UserDefaults.shared.integer(forKey: .language)) {
             if let locale = language.locale?.language.languageCode?.identifier {

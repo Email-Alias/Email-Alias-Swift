@@ -459,58 +459,6 @@
         }
       }
     },
-    "Login with TouchID/FaceID" : {
-      "localizations" : {
-        "de" : {
-          "variations" : {
-            "device" : {
-              "applevision" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Mit OpticID einloggen"
-                }
-              },
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Mit TouchID einloggen"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Mit TouchID/FaceID einloggen"
-                }
-              }
-            }
-          }
-        },
-        "en" : {
-          "variations" : {
-            "device" : {
-              "applevision" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Login with OpticID"
-                }
-              },
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Login with TouchID"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Login with TouchID/FaceID"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "Logout" : {
       "localizations" : {
         "de" : {
@@ -571,58 +519,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OR"
-          }
-        }
-      }
-    },
-    "Protect app with TouchID/FaceID" : {
-      "localizations" : {
-        "de" : {
-          "variations" : {
-            "device" : {
-              "applevision" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "App mit OpticID sichern"
-                }
-              },
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "App mit TouchID sichern"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "App mit TouchID/FaceID sichern"
-                }
-              }
-            }
-          }
-        },
-        "en" : {
-          "variations" : {
-            "device" : {
-              "applevision" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Protect app with OpticID"
-                }
-              },
-              "mac" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Protect app with TouchID"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Protect app with TouchID/FaceID"
-                }
-              }
-            }
           }
         }
       }

@@ -8,12 +8,9 @@
 import SwiftData
 import Foundation
 
-enum EmailsSchemaV1: VersionedSchema {
-    static var versionIdentifier = Schema.Version(1, 0, 0)
-
-    static var models: [any PersistentModel.Type] {
-        [Email.self]
-    }
+actor EmailsSchemaV1: VersionedSchema {
+    static let versionIdentifier = Schema.Version(1, 0, 0)
+    static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
@@ -29,7 +26,7 @@ enum EmailsSchemaV1: VersionedSchema {
             self.goto = goto
         }
         
-        convenience init(from decoder: Decoder) throws {
+        convenience init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             try self.init(
                 id: container.decode(Int.self, forKey: .id),
@@ -63,12 +60,9 @@ enum EmailsSchemaV1: VersionedSchema {
     }
 }
 
-enum EmailsSchemaV2: VersionedSchema {
-    static var versionIdentifier = Schema.Version(2, 0, 0)
-
-    static var models: [any PersistentModel.Type] {
-        [Email.self]
-    }
+actor EmailsSchemaV2: VersionedSchema {
+    static let versionIdentifier = Schema.Version(2, 0, 0)
+    static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
@@ -86,7 +80,7 @@ enum EmailsSchemaV2: VersionedSchema {
             self.active = active
         }
         
-        convenience init(from decoder: Decoder) throws {
+        convenience init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             try self.init(
                 id: container.decode(Int.self, forKey: .id),
@@ -124,12 +118,9 @@ enum EmailsSchemaV2: VersionedSchema {
     }
 }
 
-enum EmailsSchemaV3: VersionedSchema {
-    static var versionIdentifier = Schema.Version(3, 0, 0)
-
-    static var models: [any PersistentModel.Type] {
-        [Email.self]
-    }
+actor EmailsSchemaV3: VersionedSchema {
+    static let versionIdentifier = Schema.Version(3, 0, 0)
+    static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
@@ -156,7 +147,7 @@ enum EmailsSchemaV3: VersionedSchema {
             self.active = active
         }
         
-        convenience init(from decoder: Decoder) throws {
+        convenience init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             try self.init(
                 id: container.decode(Int.self, forKey: .id),
@@ -194,12 +185,79 @@ enum EmailsSchemaV3: VersionedSchema {
     }
 }
 
-enum EmailsMigrationPlan: SchemaMigrationPlan {
+actor EmailsSchemaV4: VersionedSchema {
+    static let versionIdentifier = Schema.Version(4, 0, 0)
+    static let models: [any PersistentModel.Type] = [Email.self]
+
+    @Model
+    final class Email: Identifiable, Codable, Equatable {
+        #Index<Email>([\.address], [\.privateComment], [\.gotos], [\.active])
+        #Unique<Email>([\.privateComment], [\.address])
+        let id: Int
+        let address: String
+        let privateComment: String
+        private var gotos: [String] = []
+        var active: Bool = true
+        
+        var goto: [String] {
+            get {
+                gotos
+            }
+            set {
+                gotos = newValue
+            }
+        }
+        
+        init(id: Int, address: String, privateComment: String, goto: [String], active: Bool = true) {
+            self.id = id
+            self.address = address
+            self.privateComment = privateComment
+            self.gotos = goto
+            self.active = active
+        }
+        
+        convenience init(from decoder: any Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            try self.init(
+                id: container.decode(Int.self, forKey: .id),
+                address: container.decode(String.self, forKey: .address),
+                privateComment: container.decode(String?.self, forKey: .privateComment) ?? "",
+                goto: container.decode(String.self, forKey: .goto).split(separator: ",").map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) }),
+                active: Bool(truncating: container.decode(Int.self, forKey: .active) as NSNumber)
+            )
+        }
+        
+        func encode(to encoder: any Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(id, forKey: .id)
+            try container.encode(address, forKey: .address)
+            try container.encode(privateComment, forKey: .privateComment)
+            try container.encode(goto.joined(separator: ","), forKey: .goto)
+            try container.encode(active, forKey: .active)
+        }
+        
+        static func == (lhs: Email, rhs: Email) -> Bool {
+            lhs.id == rhs.id &&
+            lhs.address == rhs.address &&
+            lhs.privateComment == rhs.privateComment &&
+            lhs.goto == rhs.goto &&
+            lhs.active == rhs.active
+        }
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case address
+            case privateComment
+            case goto
+            case active
+        }
+    }
+}
+
+actor EmailsMigrationPlan: SchemaMigrationPlan {
     private static var v2EmailsToMigrate: [(Int, String, String, String, Bool)] = []
     
-    static var schemas: [any VersionedSchema.Type] {
-        [EmailsSchemaV1.self, EmailsSchemaV2.self, EmailsSchemaV3.self]
-    }
+    static let schemas: [any VersionedSchema.Type] = [EmailsSchemaV1.self, EmailsSchemaV2.self, EmailsSchemaV3.self, EmailsSchemaV4.self]
     
     private static let migrateV1toV2 = MigrationStage.lightweight(fromVersion: EmailsSchemaV1.self, toVersion: EmailsSchemaV2.self)
     private static let migrateV2toV3 = MigrationStage.custom(fromVersion: EmailsSchemaV2.self, toVersion: EmailsSchemaV3.self) { context in
@@ -208,17 +266,15 @@ enum EmailsMigrationPlan: SchemaMigrationPlan {
             (email.id, email.address, email.privateComment, email.goto, email.active)
         }
         try context.delete(model: EmailsSchemaV2.Email.self)
-    } didMigrate: { context in
+    } didMigrate: { _ in
         for email in v2EmailsToMigrate {
             let (id, address, privateComment, goto, active) = email
             let emailV3 = EmailsSchemaV3.Email(id: id, address: address, privateComment: privateComment, goto: [goto], active: active)
         }
     }
+    private static let migrateV3toV4 = MigrationStage.lightweight(fromVersion: EmailsSchemaV3.self, toVersion: EmailsSchemaV4.self)
 
-    
-    static var stages: [MigrationStage] {
-        [migrateV1toV2, migrateV2toV3]
-    }
+    static let stages: [MigrationStage] = [migrateV1toV2, migrateV2toV3, migrateV3toV4]
 }
 
-typealias Email = EmailsSchemaV3.Email
+typealias Email = EmailsSchemaV4.Email

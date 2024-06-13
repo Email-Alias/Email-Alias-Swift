@@ -9,7 +9,7 @@
 import WatchConnectivity
 
 final class WatchCommunicator: NSObject, WCSessionDelegate {
-    static let shared = WatchCommunicator()
+    @MainActor static let shared = WatchCommunicator()
     
     private let session = WCSession.default
     

@@ -17,6 +17,7 @@ struct EmailView: View {
         animation: .default
     ) private var emails: [Email]
 
+    @State private var reloading = false
     @State private var showReloadAlert = false
     @State private var showAddAlert = false
     @State private var showDeleteAlert = false
@@ -56,6 +57,7 @@ struct EmailView: View {
                         }
                     } label: {
                         Image(systemName: "arrow.circlepath")
+                            .symbolEffect(.rotate, options: .nonRepeating, value: reloading)
                             .accessibilityLabel(Text("Reload"))
                     }
                     NavigationLink {
@@ -84,6 +86,7 @@ struct EmailView: View {
     
     private func reload() async {
         if !API.testMode {
+            reloading.toggle()
             do {
                 let emails = try await API.getEmails()
                 try modelContext.save(emails: emails)

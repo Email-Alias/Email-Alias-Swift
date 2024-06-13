@@ -14,7 +14,6 @@ struct SettingsView: View {
     
     @AppStorage(.colorScheme, store: .shared) private var colorScheme: ColorScheme = .system
     @AppStorage(.language, store: .shared) private var language: Language = .system
-    @AppStorage(.faceIdEnabled) private var faceIdEnabled = false
     
     var body: some View {
         Form {
@@ -38,9 +37,6 @@ struct SettingsView: View {
                 ])
             }
             #endif
-            Toggle(isOn: $faceIdEnabled) {
-                Text("Protect app with TouchID/FaceID")
-            }
             Button("Source code") {
                 openURL(URL(string: "https://github.com/Email-Alias/Email-Alias-Swift")!)
             }

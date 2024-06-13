@@ -114,6 +114,7 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView(registered: .constant(false))
+    @Previewable @State var registered = false
+    RegisterView(registered: $registered)
         .modelContainer(for: Email.self, inMemory: true)
 }

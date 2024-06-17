@@ -12,7 +12,7 @@
 		26095AC52AE92A3100F272EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26095AC42AE92A3100F272EA /* Assets.xcassets */; };
 		26095AC92AE92A3100F272EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26095AC82AE92A3100F272EA /* Preview Assets.xcassets */; };
 		26095AD22AE933E800F272EA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD12AE933E800F272EA /* API.swift */; };
-		26095AD42AE93F4500F272EA /* WatchStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD32AE93F4500F272EA /* WatchStringExtension.swift */; };
+		26095AD42AE93F4500F272EA /* SharedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD32AE93F4500F272EA /* SharedStringExtension.swift */; };
 		26095AD72AE9490200F272EA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 26095AD62AE9490200F272EA /* Localizable.xcstrings */; };
 		26095AD92AE9791400F272EA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD82AE9791400F272EA /* AddView.swift */; };
 		260D54C62B8E466F00EA01A1 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
@@ -34,7 +34,7 @@
 		2692DE9E2B80A0BF0084763D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2692DE9D2B80A0BF0084763D /* InfoPlist.xcstrings */; };
 		26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */; };
 		26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A02B8B61B800ADD94E /* SettingsView.swift */; };
-		26A4F7A32B8B8CF100ADD94E /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A22B8B8CF100ADD94E /* SharedUserDefaultKeys.swift */; };
+		26A4F7A32B8B8CF100ADD94E /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A22B8B8CF100ADD94E /* UserDefaultKeys.swift */; };
 		26A4F7A72B8B8D1E00ADD94E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
 		26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */; };
 		26A4F7E12B8D17F900ADD94E /* third-party-licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */; };
@@ -52,12 +52,12 @@
 		26A927622B888B14002B27E1 /* TestEmails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927612B888B14002B27E1 /* TestEmails.swift */; };
 		26A927632B888B18002B27E1 /* TestEmails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927612B888B14002B27E1 /* TestEmails.swift */; };
 		26A927642B888BA6002B27E1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD12AE933E800F272EA /* API.swift */; };
-		26A927662B888BDA002B27E1 /* SharedWatchUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927652B888BDA002B27E1 /* SharedWatchUserDefaultKeys.swift */; };
-		26A927672B888BEE002B27E1 /* SharedWatchUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927652B888BDA002B27E1 /* SharedWatchUserDefaultKeys.swift */; };
+		26A927662B888BDA002B27E1 /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */; };
+		26A927672B888BEE002B27E1 /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */; };
 		26A9276A2B888D90002B27E1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927692B888D90002B27E1 /* RegisterView.swift */; };
 		26A9276C2B888DFD002B27E1 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A9276B2B888DFD002B27E1 /* EmailView.swift */; };
 		26A9276E2B889A22002B27E1 /* AddEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A9276D2B889A22002B27E1 /* AddEmailView.swift */; };
-		26A9276F2B889A3A002B27E1 /* WatchStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD32AE93F4500F272EA /* WatchStringExtension.swift */; };
+		26A9276F2B889A3A002B27E1 /* SharedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD32AE93F4500F272EA /* SharedStringExtension.swift */; };
 		26A927712B889C45002B27E1 /* EmailDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927702B889C45002B27E1 /* EmailDetailView.swift */; };
 		26A927752B889D14002B27E1 /* EmailQrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */; };
 		26A927812B88A296002B27E1 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927722B889C9A002B27E1 /* ImageExtension.swift */; };
@@ -112,7 +112,7 @@
 		26095AC62AE92A3100F272EA /* Email_Alias.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Email_Alias.entitlements; sourceTree = "<group>"; };
 		26095AC82AE92A3100F272EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26095AD12AE933E800F272EA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		26095AD32AE93F4500F272EA /* WatchStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStringExtension.swift; sourceTree = "<group>"; };
+		26095AD32AE93F4500F272EA /* SharedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStringExtension.swift; sourceTree = "<group>"; };
 		26095AD62AE9490200F272EA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		26095AD82AE9791400F272EA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		260D54C72B8E471A00EA01A1 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		2692DE9D2B80A0BF0084763D /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		26A4F7A02B8B61B800ADD94E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		26A4F7A22B8B8CF100ADD94E /* SharedUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaultKeys.swift; sourceTree = "<group>"; };
+		26A4F7A22B8B8CF100ADD94E /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		26A4F7A62B8B8D1E00ADD94E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWindowContextMenu.swift; sourceTree = "<group>"; };
 		26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "third-party-licenses.txt"; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		26A9275D2B88799A002B27E1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		26A9275F2B8879A7002B27E1 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		26A927612B888B14002B27E1 /* TestEmails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEmails.swift; sourceTree = "<group>"; };
-		26A927652B888BDA002B27E1 /* SharedWatchUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedWatchUserDefaultKeys.swift; sourceTree = "<group>"; };
+		26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaultKeys.swift; sourceTree = "<group>"; };
 		26A927692B888D90002B27E1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		26A9276B2B888DFD002B27E1 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		26A9276D2B889A22002B27E1 /* AddEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmailView.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 				26874F882B7E8AE4006D2DB4 /* DataContainer.swift */,
 				26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */,
 				26874F832B7E8768006D2DB4 /* UserDefaultsExtension.swift */,
-				26A4F7A22B8B8CF100ADD94E /* SharedUserDefaultKeys.swift */,
+				26A4F7A22B8B8CF100ADD94E /* UserDefaultKeys.swift */,
 				26BAC7AD2C199CA700B7B471 /* StringExtension.swift */,
 				26A927892B88AA24002B27E1 /* WatchCommunicator.swift */,
 				26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */,
@@ -246,14 +246,14 @@
 		26874F852B7E8A86006D2DB4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				26A927652B888BDA002B27E1 /* SharedWatchUserDefaultKeys.swift */,
+				26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */,
 				26A4F7A62B8B8D1E00ADD94E /* Language.swift */,
 				265BDB972B73C12300DE21A9 /* Email.swift */,
 				26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */,
 				26A927422B887434002B27E1 /* KeychainService.swift */,
 				26095AD12AE933E800F272EA /* API.swift */,
 				26A927612B888B14002B27E1 /* TestEmails.swift */,
-				26095AD32AE93F4500F272EA /* WatchStringExtension.swift */,
+				26095AD32AE93F4500F272EA /* SharedStringExtension.swift */,
 				26A927722B889C9A002B27E1 /* ImageExtension.swift */,
 				260D54C72B8E471A00EA01A1 /* ViewExtension.swift */,
 				26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */,
@@ -416,10 +416,10 @@
 			files = (
 				26874F842B7E8768006D2DB4 /* UserDefaultsExtension.swift in Sources */,
 				26A927632B888B18002B27E1 /* TestEmails.swift in Sources */,
-				26A927672B888BEE002B27E1 /* SharedWatchUserDefaultKeys.swift in Sources */,
-				26A4F7A32B8B8CF100ADD94E /* SharedUserDefaultKeys.swift in Sources */,
+				26A927672B888BEE002B27E1 /* SharedUserDefaultKeys.swift in Sources */,
+				26A4F7A32B8B8CF100ADD94E /* UserDefaultKeys.swift in Sources */,
 				26BAC7AE2C199CAE00B7B471 /* StringExtension.swift in Sources */,
-				26095AD42AE93F4500F272EA /* WatchStringExtension.swift in Sources */,
+				26095AD42AE93F4500F272EA /* SharedStringExtension.swift in Sources */,
 				26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */,
 				26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */,
 				2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */,
@@ -459,10 +459,10 @@
 				26A4F7E32B8D18B500ADD94E /* LicenseView.swift in Sources */,
 				26A927622B888B14002B27E1 /* TestEmails.swift in Sources */,
 				26A9274C2B887906002B27E1 /* EmailAliasWatchApp.swift in Sources */,
-				26A927662B888BDA002B27E1 /* SharedWatchUserDefaultKeys.swift in Sources */,
+				26A927662B888BDA002B27E1 /* SharedUserDefaultKeys.swift in Sources */,
 				26A9275C2B88797F002B27E1 /* Email.swift in Sources */,
 				26A927642B888BA6002B27E1 /* API.swift in Sources */,
-				26A9276F2B889A3A002B27E1 /* WatchStringExtension.swift in Sources */,
+				26A9276F2B889A3A002B27E1 /* SharedStringExtension.swift in Sources */,
 				26A9275B2B88797A002B27E1 /* KeychainService.swift in Sources */,
 				26A9276E2B889A22002B27E1 /* AddEmailView.swift in Sources */,
 				26A927712B889C45002B27E1 /* EmailDetailView.swift in Sources */,

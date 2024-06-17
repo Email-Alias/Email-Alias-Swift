@@ -28,7 +28,8 @@ extension String {
 
         let cgImage: CGImage?
         if let outputImage = filter.outputImage {
-            cgImage = context.createCGImage(outputImage, from: outputImage.extent)
+            let scaledOutputImage = outputImage.transformed(by: CGAffineTransformMakeScale(10, 10))
+            cgImage = context.createCGImage(scaledOutputImage, from: scaledOutputImage.extent)
         }
         else {
             cgImage = nil

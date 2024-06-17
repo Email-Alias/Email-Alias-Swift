@@ -14,10 +14,17 @@ struct EmailQRView: View {
     var body: some View {
         Group {
             if let image = "mailto:\(email.address)".generateQRCode() {
-                Image.native(image)
-                    .interpolation(.none)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                VStack {
+                    Image.native(image)
+                        .interpolation(.none)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    #if os(iOS) || os(visionOS)
+                    Button("Copy qr code to clipboard") {
+                        UIPasteboard.general.image = image
+                    }
+                    #endif
+                }
             }
             else {
                 Text("The qr code couldn't be created.")

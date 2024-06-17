@@ -171,6 +171,22 @@
         }
       }
     },
+    "Copy qr code to clipboard" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-Code in die Zwischenablage kopieren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy qr code to clipboard"
+          }
+        }
+      }
+    },
     "Copy to clipboard" : {
       "localizations" : {
         "de" : {

@@ -171,22 +171,6 @@
         }
       }
     },
-    "Copy qr code to clipboard" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "QR-Code in die Zwischenablage kopieren"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Copy qr code to clipboard"
-          }
-        }
-      }
-    },
     "Copy to clipboard" : {
       "localizations" : {
         "de" : {
@@ -539,6 +523,22 @@
         }
       }
     },
+    "QR Code for %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR Code für %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR Code for %@"
+          }
+        }
+      }
+    },
     "Random alias" : {
       "localizations" : {
         "de" : {
@@ -647,6 +647,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Settings"
+          }
+        }
+      }
+    },
+    "Share the qr code" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teile den QR-Code"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share the qr code"
           }
         }
       }

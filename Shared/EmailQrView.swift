@@ -15,13 +15,14 @@ struct EmailQRView: View {
         Group {
             if let image = "mailto:\(email.address)".generateQRCode() {
                 VStack {
-                    Image.native(image)
+                    let imageView = Image.native(image)
+                    imageView
                         .interpolation(.none)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    #if os(iOS) || os(visionOS)
-                    Button("Copy qr code to clipboard") {
-                        UIPasteboard.general.image = image
+                    #if !os(watchOS)
+                    ShareLink(item: imageView, preview: SharePreview("QR Code for \(email.address)", image: imageView)) {
+                        Label("Share the qr code", systemImage: "square.and.arrow.up")
                     }
                     #endif
                 }

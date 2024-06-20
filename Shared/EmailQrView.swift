@@ -15,7 +15,7 @@ struct EmailQRView: View {
         Group {
             if let image = "mailto:\(email.address)".generateQRCode() {
                 VStack {
-                    let imageView = Image.native(image)
+                    let imageView = Image(native: image)
                     imageView
                         .interpolation(.none)
                         .resizable()

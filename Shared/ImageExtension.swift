@@ -13,12 +13,12 @@ typealias NativeImage = NSImage
 typealias NativeImage = UIImage
 #endif
 
-extension Image {    
-    static func native(_ nativeImage: NativeImage) -> Image {
+extension Image {
+    init(native nativeImage: NativeImage) {
         #if os(macOS)
-        Image(nsImage: nativeImage)
+        self.init(nsImage: nativeImage)
         #else
-        Image(uiImage: nativeImage)
+        self.init(uiImage: nativeImage)
         #endif
     }
 }

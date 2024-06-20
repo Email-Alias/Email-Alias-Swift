@@ -25,7 +25,7 @@ func insertTestEmails(into modelContext: ModelContext) {
     }
 }
 
-struct SampleEmails: PreviewModifier {
+private struct SampleEmails: PreviewModifier {
     static func makeSharedContext() throws -> ModelContainer {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Email.self, configurations: config)

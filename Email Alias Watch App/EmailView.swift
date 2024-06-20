@@ -53,6 +53,7 @@ struct EmailView: View {
                 HStack {
                     Button {
                         Task {
+                            reloading.toggle()
                             await reload()
                         }
                     } label: {
@@ -86,7 +87,6 @@ struct EmailView: View {
     
     private func reload() async {
         if !API.testMode {
-            reloading.toggle()
             do {
                 let emails = try await API.getEmails()
                 try modelContext.save(emails: emails)

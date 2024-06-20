@@ -36,6 +36,7 @@ struct EmailView: View {
                     #if os(macOS)
                     Button {
                         Task {
+                            reloading.toggle()
                             await reload()
                         }
                     } label: {
@@ -103,9 +104,6 @@ struct EmailView: View {
     
     private func reload() async {
         if !API.testMode {
-            #if os(macOS)
-            reloading.toggle()
-            #endif
             do {
                 let emails = try await API.getEmails()
                 try modelContext.save(emails: emails)

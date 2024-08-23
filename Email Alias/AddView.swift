@@ -99,11 +99,14 @@ struct AddView: View {
             return
         }
         
+        let (comment, additionalGoto) = await MainActor.run {
+            (self.comment, self.additionalGoto)
+        }
         if let domain = email.split(separator: "@").last, await addEmail("\(alias)@\(domain)", comment, additionalGoto) {
             dismiss()
-            comment = ""
+            self.comment = ""
             alias = ""
-            additionalGoto = ""
+            self.additionalGoto = ""
         }
         else {
             showExistsAlert = true

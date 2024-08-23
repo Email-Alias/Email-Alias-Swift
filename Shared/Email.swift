@@ -14,10 +14,10 @@ actor EmailsSchemaV1: VersionedSchema {
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
-        let id: Int
-        let address: String
-        let privateComment: String
-        let goto: String
+        var id: Int
+        var address: String
+        var privateComment: String
+        var goto: String
         
         init(id: Int, address: String, privateComment: String, goto: String) {
             self.id = id
@@ -66,10 +66,10 @@ actor EmailsSchemaV2: VersionedSchema {
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
-        let id: Int
-        let address: String
-        let privateComment: String
-        let goto: String
+        var id: Int
+        var address: String
+        var privateComment: String
+        var goto: String
         var active: Bool = true
         
         init(id: Int, address: String, privateComment: String, goto: String, active: Bool = true) {
@@ -124,9 +124,9 @@ actor EmailsSchemaV3: VersionedSchema {
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
-        let id: Int
-        let address: String
-        let privateComment: String
+        var id: Int
+        var address: String
+        var privateComment: String
         private var gotos: [String] = []
         var active: Bool = true
         
@@ -193,9 +193,9 @@ actor EmailsSchemaV4: VersionedSchema {
     final class Email: Identifiable, Codable, Equatable {
         #Index<Email>([\.address], [\.privateComment], [\.gotos], [\.active])
         #Unique<Email>([\.privateComment], [\.address])
-        let id: Int
-        let address: String
-        let privateComment: String
+        var id: Int
+        var address: String
+        var privateComment: String
         private var gotos: [String] = []
         var active: Bool = true
         

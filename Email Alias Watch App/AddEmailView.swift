@@ -41,9 +41,12 @@ struct AddView: View {
                     }
                     while emails.contains { $0.address == "\(alias)@\(domain)" }
                     
+                    let comment = await MainActor.run {
+                        self.comment
+                    }
                     await addEmail("\(alias)@\(domain)", comment)
                     dismiss()
-                    comment = ""
+                    self.comment = ""
                 }
             } label: {
                 Text("Add email")

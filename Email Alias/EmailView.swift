@@ -19,6 +19,7 @@ struct EmailView: View {
     
     @State private var showReloadAlert = false
     @State private var showAddAlert = false
+    @State private var showCopyAlert = false
     
     #if os(macOS)
     @State private var reloading = false
@@ -26,7 +27,7 @@ struct EmailView: View {
     
     var body: some View {
         NavigationSplitView {
-            EmailList(search: search)
+            EmailList(search: search, copyEmailToPasteboard: copyEmailToPasteboard)
                 .searchable(text: $search, prompt: "Search email")
                 .refreshable {
                     await reload()
@@ -90,6 +91,7 @@ struct EmailView: View {
                 .alert("Error at adding an email", isPresented: $showAddAlert) {
                     EmptyView()
                 }
+                .toast(message: "Email copied to clipboard", isShowing: $showCopyAlert)
                 .navigationSplitViewColumnWidth(ideal: 300)
         } detail: {
             Text("Click on an email to show a qr code with the address")
@@ -128,6 +130,7 @@ struct EmailView: View {
             let email = Email(id: nextID, address: address, privateComment: comment, goto: gotos)
             modelContext.insert(email)
             UserDefaults.standard.set(nextID &+ 1, forKey: .nextID)
+            copyEmailToPasteboard(email.address)
         }
         else {
             do {
@@ -135,12 +138,23 @@ struct EmailView: View {
                     return false
                 }
                 await reload()
+                copyEmailToPasteboard(address)
             }
             catch {
                 showAddAlert = true
             }
         }
         return true
+    }
+    
+    private func copyEmailToPasteboard(_ email: String) {
+        #if os(macOS)
+        NSPasteboard.general.declareTypes([.string], owner: nil)
+        NSPasteboard.general.setString(email, forType: .string)
+        #else
+        UIPasteboard.general.string = email
+        #endif
+        showCopyAlert = true
     }
 }
 
@@ -151,6 +165,7 @@ struct EmailView: View {
 
 struct EmailList: View {
     let search: String
+    let copyEmailToPasteboard: (String) -> Void
     
     @Environment(\.openWindow) private var openWindow
     @Environment(\.modelContext) private var modelContext
@@ -160,13 +175,13 @@ struct EmailList: View {
     @State private var showDeleteConfirmAlert = false
     @State private var emailsToDelete: [Email]? = nil
     @State private var showDeleteAlert = false
-    @State private var showCopyAlert = false
     @State private var showEditAlert = false
     
-    init(search: String) {
+    init(search: String, copyEmailToPasteboard: @escaping (String) -> Void) {
         let search = search.lowercased()
         self.search = search
         self._emails = Query(filter: #Predicate<Email> { search.isEmpty || $0.address.localizedStandardContains(search) || $0.privateComment.localizedStandardContains(search) }, sort: \Email.privateComment, animation: .default)
+        self.copyEmailToPasteboard = copyEmailToPasteboard
     }
     
     var body: some View {
@@ -183,7 +198,7 @@ struct EmailList: View {
                         }
                         Spacer()
                         Button {
-                            copyEmailToPasteboard(email)
+                            copyEmailToPasteboard(email.address)
                         } label: {
                             Image(systemName: "rectangle.portrait.on.rectangle.portrait")
                                 .accessibilityLabel(Text("Copy to clipboard"))
@@ -248,17 +263,6 @@ struct EmailList: View {
         .alert("Error at updating the email", isPresented: $showEditAlert) {
             EmptyView()
         }
-        .toast(message: "Email copied to clipboard", isShowing: $showCopyAlert)
-    }
-    
-    private func copyEmailToPasteboard(_ email: Email) {
-        #if os(macOS)
-        NSPasteboard.general.declareTypes([.string], owner: nil)
-        NSPasteboard.general.setString(email.address, forType: .string)
-        #else
-        UIPasteboard.general.string = email.address
-        #endif
-        showCopyAlert = true
     }
     
     private func deleteEmails(emails: [Email]) async {

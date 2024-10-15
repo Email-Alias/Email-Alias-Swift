@@ -57,7 +57,7 @@ struct EmailView: View {
                     #endif
                         Label("Add", systemImage: "plus")
                     }
-                    .keyboardShortcut(KeyEquivalent("A"), modifiers: .command)
+                    .keyboardShortcut(KeyEquivalent("N"), modifiers: .command)
                     #if !os(macOS)
                     SettingsButton()
                     #endif

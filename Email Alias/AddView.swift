@@ -40,7 +40,7 @@ struct AddView: View {
                         repeat {
                             alias = String.random(length: 20)
                         }
-                        while domain != nil && emails.contains { $0.address == "\(alias)@\(domain!)" }
+                        while alias.starts(with: ".") || (domain != nil && emails.contains { $0.address == "\(alias)@\(domain!)" })
                         descriptionFocused = true
                     } label: {
                         #if !os(macOS)

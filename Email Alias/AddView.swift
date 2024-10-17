@@ -43,9 +43,14 @@ struct AddView: View {
                         while domain != nil && emails.contains { $0.address == "\(alias)@\(domain!)" }
                         descriptionFocused = true
                     } label: {
+                        #if !os(macOS)
+                            Text("Generate random alias")
+                                .opacity(0)
+                        #endif
                         Image(systemName: "dice")
-                            .accessibilityLabel(Text("Random alias"))
+                            .accessibilityLabel(Text("Generate random alias"))
                     }
+                    .keyboardShortcut(KeyEquivalent("R"), modifiers: [.command, .shift])
                 }
                 if let domain, !domain.isEmpty {
                     Text("@\(String(domain))")

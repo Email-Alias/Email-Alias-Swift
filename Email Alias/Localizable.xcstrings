@@ -411,6 +411,22 @@
         }
       }
     },
+    "Generate random alias" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zufälligen Alias erzeugen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generate random alias"
+          }
+        }
+      }
+    },
     "German" : {
       "localizations" : {
         "de" : {
@@ -535,22 +551,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "QR Code for %@"
-          }
-        }
-      }
-    },
-    "Random alias" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zufälliger Alias"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Random alias"
           }
         }
       }

@@ -871,8 +871,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/EFPrefix/EFQRCode";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.2.2;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

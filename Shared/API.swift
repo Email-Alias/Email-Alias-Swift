@@ -41,40 +41,46 @@ struct API {
         return domain == testDomain
     }
     
+    @concurrent
     static func getEmails() async throws -> [Email] {
         let goto = UserDefaults.standard.string(forKey: .email)!
-        let req = baseReq(url: "get/alias/all")
+        let req = await baseReq(url: "get/alias/all")
         let (res, _) = try await URLSession.shared.data(for: req)
-        return try decoder.decode([Email].self, from: res).filter { $0.goto.contains(goto) && !$0.privateComment.isEmpty }
+        return try await decoder.decode([Email].self, from: res).filter { $0.goto.contains(goto) && !$0.privateComment.isEmpty }
     }
     
-    static func addEmail(emails: [Email], address: String, privateComment: String) async throws -> Bool {
+    @concurrent
+    static func addEmail(emails: [Email], address: String, privateComment: String, additionalGotos: [String]) async throws -> Bool {
         let goto = UserDefaults.standard.string(forKey: .email)!
-        let email = EmailReq(active: true, sogoVisible: false, address: address, goto: goto, privateComment: privateComment)
-        var req = baseReq(url: "add/alias")
+        let gotoString = (additionalGotos + [goto]).joined(separator: ",")
+        let email = EmailReq(active: true, sogoVisible: false, address: address, goto: gotoString, privateComment: privateComment)
+        var req = await baseReq(url: "add/alias")
         req.httpMethod = "POST"
-        req.httpBody = try encoder.encode(email)
+        req.httpBody = try await encoder.encode(email)
         return try await send(basicRequest: req)
     }
     
+    @concurrent
     static func deleteEmails(emails: [Email]) async throws -> Bool {
         let ids = emails.map { $0.id }
-        var req = baseReq(url: "delete/alias")
-        req.httpBody = try encoder.encode(ids)
+        var req = await baseReq(url: "delete/alias")
+        req.httpBody = try await encoder.encode(ids)
         req.httpMethod = "POST"
         return try await send(basicRequest: req)
     }
     
+    @concurrent
     static func update(email: Email) async throws -> Bool {
-        var req = baseReq(url: "edit/alias")
+        var req = await baseReq(url: "edit/alias")
         req.httpMethod = "POST"
-        req.httpBody = try encoder.encode(UpdateReq(items: [email.id], attr: email))
+        req.httpBody = try await encoder.encode(UpdateReq(items: [email.id], attr: email))
         return try await send(basicRequest: req)
     }
     
+    @concurrent
     private static func send(basicRequest req: URLRequest) async throws -> Bool {
         let (res, _) = try await URLSession.shared.data(for: req)
-        let jsonRes = try decoder.decode([Result].self, from: res)
+        let jsonRes = try await decoder.decode([Result].self, from: res)
         return jsonRes.allSatisfy { $0.type == "success" }
     }
 }

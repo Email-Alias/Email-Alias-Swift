@@ -11,5 +11,8 @@ extension String {
     static let apiKey = "apiKey"
     static let nextID = "nextID"
     static let registered = "registered"
+    #if os(macOS)
     static let language = "language"
+    #endif
+    static let colorScheme = "colorScheme"
 }

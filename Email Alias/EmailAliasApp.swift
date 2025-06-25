@@ -19,7 +19,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 @main
 struct EmailAliasApp: App {    
     @AppStorage(.colorScheme, store: .shared) private var colorScheme: ColorScheme = .system
+    #if os(macOS)
     @AppStorage(.language, store: .shared) private var language: Language = .system
+    #endif
+    @StateObject private var menuState = MenuState()
+    @State private var showSettings = false
     
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -30,27 +34,45 @@ struct EmailAliasApp: App {
     #endif
 
     var body: some Scene {
+        let container = DataContainer.shared.container
+        
         WindowGroup {
-            ContentView()
+            ContentView(showSettings: $showSettings)
                 .preferredColorScheme(colorScheme.systemTheme)
+                #if os(macOS)
                 .language(language)
+                #endif
+                .environmentObject(menuState)
+        }
+        .commands {
+            AppMenu(showSettings: $showSettings, addButtonEnabled: $menuState.addButtonEnabled, reloadButtonEnabled: $menuState.reloadButtonEnabled, clearCacheButtonEnabled: $menuState.clearCacheButtonEnabled, logoutButtonEnabled: $menuState.logoutButtonEnabled)
         }
         .modelContainer(container)
 
-        WindowGroup(for: Email.self) { email in
-            Group {
-                if let email = email.wrappedValue {
-                    NavigationStack {
-                        EmailDetailView(email: email)
-                    }
-                }
-                else {
-                    EmptyView()
-                }
+        WindowGroup(id: "email_detail", for: Email.ID.self) { id in
+            NavigationStack {
+                EmailDetailView(id: id.wrappedValue)
             }
-            .preferredColorScheme(colorScheme.systemTheme)
-            .language(language)
+                .preferredColorScheme(colorScheme.systemTheme)
+                #if os(macOS)
+                .language(language)
+                #endif
         }
+        .modelContainer(container)
+        
+        #if os(macOS)
+        Window("Add email", id: "add_email") {
+            AddViewWindow()
+                .environmentObject(menuState)
+        }
+        .modelContainer(container)
+        #else
+        WindowGroup("Add email", id: "add_email") {
+            AddViewWindow()
+                .environmentObject(menuState)
+        }
+        .modelContainer(container)
+        #endif
         
         #if os(macOS)
         Settings {

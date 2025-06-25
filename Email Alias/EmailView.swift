@@ -8,9 +8,94 @@
 import SwiftUI
 import SwiftData
 
+struct AddEmailButton: View {
+    let emails: [Email]
+    
+    @Binding var showReloadAlert: Bool
+    @Binding var showAddAlert: Bool
+    @Binding var showCopyAlert: Bool
+
+    var body: some View {
+        #if os(macOS)
+        AddEmailButtonWindow()
+        #elseif os(iOS)
+        Group {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                AddEmailButtonLocal(emails: emails, showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
+            }
+            else {
+                AddEmailButtonWindow()
+            }
+        }
+        #else
+        AddEmailButtonLocal(emails: emails, showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
+        #endif
+    }
+}
+
+#if os(macOS) || os(iOS)
+struct AddEmailButtonWindow: View {
+    @Environment(\.openWindow) private var openWindow
+    
+    var body: some View {
+        Button {
+            openWindow(id: "add_email")
+        } label: {
+            Label("Add", systemImage: "plus")
+        }
+    }
+}
+#endif
+
+#if os(iOS) || os(visionOS)
+struct AddEmailButtonLocal: View {
+    @Environment(\.modelContext) private var modelContext
+    
+    let emails: [Email]
+    
+    @Binding var showReloadAlert: Bool
+    @Binding var showAddAlert: Bool
+    @Binding var showCopyAlert: Bool
+    
+    var body: some View {
+        NavigationLink {
+            AddView(emails: emails) { address, comment, additionalGoto in
+                await addEmail(emails: emails, modelContext: modelContext, address: address, comment: comment, additionalGoto: additionalGoto) {
+                    showAddAlert = true
+                } showCopyAlert: {
+                    showCopyAlert = true
+                } showReloadAlert: {
+                    showReloadAlert = true
+                }
+            }
+        } label: {
+            Label("Add", systemImage: "plus")
+        }
+    }
+}
+#endif
+
+struct LogoutButton: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismissWindow) private var dismissWindow
+    
+    @Binding var registered: Bool
+
+    var body: some View {
+        Button {
+            logout(modelContext: modelContext, dismissWindow: dismissWindow) {
+                registered = false
+            }
+        } label: {
+            Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
+        }
+    }
+}
+
 struct EmailView: View {
     @Environment(\.modelContext) private var modelContext
     @Binding var registered: Bool
+    @Binding var showSettings: Bool
     
     @Query(sort: \Email.privateComment, animation: .default) private var emails: [Email]
     @State private var search = ""
@@ -25,73 +110,32 @@ struct EmailView: View {
     @State private var reloading = false
     #endif
     
+    @FocusState private var searchFocused
+    
     var body: some View {
         NavigationSplitView {
-            EmailList(search: search, copyEmailToPasteboard: copyEmailToPasteboard)
+            EmailList(search: search) { email in
+                copyEmailToPasteboard(email) {
+                    showCopyAlert = true
+                }
+            }
                 .searchable(text: $search, prompt: "Search email")
+                .searchFocused($searchFocused)
                 .refreshable {
-                    await reload()
+                    await reload(modelContext: modelContext) {
+                        showReloadAlert = true
+                    }
                 }
                 .navigationTitle("Emails")
                 .toolbar {
-                    #if os(macOS)
-                    Button {
-                        Task {
-                            reloading.toggle()
-                            await reload()
-                        }
-                    } label: {
-                        Label("Reload", systemImage: "arrow.circlepath")
-                            .symbolEffect(.rotate, options: .nonRepeating, value: reloading)
-                    }
-                    .keyboardShortcut(KeyEquivalent("R"), modifiers: .command)
-                    #else
+                    #if !os(macOS)
                     EditButton()
                     #endif
-                    NavigationLink {
-                        AddView(emails: emails, addEmail: addEmail(address:comment:additionalGoto:))
-                    } label: {
-                    #if !os(macOS)
-                        Text("Add")
-                            .opacity(0)
-                    #endif
-                        Label("Add", systemImage: "plus")
-                    }
-                    .keyboardShortcut(KeyEquivalent("N"), modifiers: .command)
-                    #if !os(macOS)
-                    SettingsButton()
-                    #endif
-                    Button {
-                        do {
-                            try modelContext.delete(model: Email.self)
-                            UserDefaults.standard.removeObject(forKey: .domain)
-                            UserDefaults.standard.removeObject(forKey: .email)
-                            let _ = removeFromKeychain(withKey: .apiKey)
-                            UserDefaults.standard.removeObject(forKey: .nextID)
-                            #if os(iOS)
-                            WatchCommunicator.shared.send(userInfo: [
-                                "type": "logout"
-                            ])
-                            #endif
-                            registered = false
-                        }
-                        catch {}
-                    } label: {
-                        #if !os(macOS)
-                        Text("Logout")
-                            .opacity(0)
-                        #endif
-                        Label("Logout", systemImage: "rectangle.portrait.and.arrow.right")
-                    }
-                    .keyboardShortcut(KeyEquivalent("L"), modifiers: .command)
+                    SettingsButton(showSettings: $showSettings)
+                    AddEmailButton(emails: emails, showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
+                    LogoutButton(registered: $registered)
                 }
-                .alert("Error at loading the emails", isPresented: $showReloadAlert) {
-                    EmptyView()
-                }
-                .alert("Error at adding an email", isPresented: $showAddAlert) {
-                    EmptyView()
-                }
-                .toast(message: "Email copied to clipboard", isShowing: $showCopyAlert)
+                .addViewAlerts(showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
                 .navigationSplitViewColumnWidth(ideal: 300)
         } detail: {
             Text("Click on an email to show a qr code with the address")
@@ -99,68 +143,21 @@ struct EmailView: View {
                 .padding()
                 .navigationTitle("Select email")
         }
-        .task {
-            await reload()
+        .focusedValue(\.searchEmail) {
+            searchFocused.toggle()
         }
-    }
-    
-    private func reload() async {
-        if !API.testMode {
-            do {
-                let emails = try await API.getEmails()
-                try modelContext.save(emails: emails)
-            }
-            catch {
+        .task {
+            await reload(modelContext: modelContext) {
                 showReloadAlert = true
             }
         }
-    }
-    
-    private func addEmail(address: String, comment: String, additionalGoto: String) async -> Bool {
-        if API.testMode {
-            let goto = UserDefaults.standard.string(forKey: .email)!
-            let nextID = UserDefaults.standard.integer(forKey: .nextID)
-            let gotos: [String]
-            if additionalGoto.isEmpty {
-                gotos = [goto]
-            }
-            else {
-                gotos = additionalGoto.split(separator: ",").map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) }) + [goto]
-            }
-            let email = Email(id: nextID, address: address, privateComment: comment, goto: gotos)
-            modelContext.insert(email)
-            UserDefaults.standard.set(nextID &+ 1, forKey: .nextID)
-            copyEmailToPasteboard(email.address)
-        }
-        else {
-            do {
-                if (!(try await API.addEmail(emails: emails, address: address, privateComment: comment))) {
-                    return false
-                }
-                await reload()
-                copyEmailToPasteboard(address)
-            }
-            catch {
-                showAddAlert = true
-            }
-        }
-        return true
-    }
-    
-    private func copyEmailToPasteboard(_ email: String) {
-        #if os(macOS)
-        NSPasteboard.general.declareTypes([.string], owner: nil)
-        NSPasteboard.general.setString(email, forType: .string)
-        #else
-        UIPasteboard.general.string = email
-        #endif
-        showCopyAlert = true
     }
 }
 
 #Preview(traits: .sampleEmails) {
     @Previewable @State var registered = true
-    EmailView(registered: $registered)
+    @Previewable @State var showSettings = true
+    EmailView(registered: $registered, showSettings: $showSettings)
 }
 
 struct EmailList: View {
@@ -188,7 +185,7 @@ struct EmailList: View {
         List {
             ForEach(emails) { email in
                 NavigationLink {
-                    EmailDetailView(email: email)
+                    EmailDetailView(id: email.id)
                 } label: {
                     HStack {
                         VStack(alignment: .leading) {
@@ -225,7 +222,7 @@ struct EmailList: View {
                         .toggleStyle(CheckboxToggleStyle())
                     }
                     .newWindowContextMenu {
-                        openWindow(value: email)
+                        openWindow(id: "email_detail", value: email.id)
                     }
                 }
 #if os(macOS)
@@ -266,19 +263,22 @@ struct EmailList: View {
     }
     
     private func deleteEmails(emails: [Email]) async {
-        do {
-            if !API.testMode {
-                if !(try await API.deleteEmails(emails: emails)) {
-                    showDeleteAlert = true
-                    return
+        Task {
+            do {
+                if !API.testMode {
+                    if !(try await API.deleteEmails(emails: emails)) {
+                        showDeleteAlert = true
+                        return
+                    }
+                }
+                for email in emails {
+                    modelContext.delete(email)
                 }
             }
-            for email in emails {
-                modelContext.delete(email)
+            catch {
+                showDeleteAlert = true
             }
-        }
-        catch {
-            showDeleteAlert = true
         }
     }
 }
+

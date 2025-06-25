@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2605D5A92E034ACA00619888 /* Email Alias.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2605D5A22E034ABD00619888 /* Email Alias.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2605D5AC2E034AE900619888 /* Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2605D5A32E034ABD00619888 /* Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2605D5AF2E034AF500619888 /* Browser-CLI in Embed Helper Tools */ = {isa = PBXBuildFile; fileRef = 2605D5A12E034ABD00619888 /* Browser-CLI */; platformFilters = (macos, ); settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		26095AC12AE92A3000F272EA /* EmailAliasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AC02AE92A3000F272EA /* EmailAliasApp.swift */; };
 		26095AC32AE92A3000F272EA /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AC22AE92A3000F272EA /* EmailView.swift */; };
 		26095AC52AE92A3100F272EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26095AC42AE92A3100F272EA /* Assets.xcassets */; };
@@ -15,10 +18,38 @@
 		26095AD42AE93F4500F272EA /* SharedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD32AE93F4500F272EA /* SharedStringExtension.swift */; };
 		26095AD72AE9490200F272EA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 26095AD62AE9490200F272EA /* Localizable.xcstrings */; };
 		26095AD92AE9791400F272EA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26095AD82AE9791400F272EA /* AddView.swift */; };
+		260AAC522E02D37C00EF142F /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265BDB972B73C12300DE21A9 /* Email.swift */; };
+		260AAC532E02D39500EF142F /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26874F882B7E8AE4006D2DB4 /* DataContainer.swift */; };
+		260AAC582E02DF9200EF142F /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260AAC552E02DF9200EF142F /* WebExtension.swift */; };
+		260AAC592E02DF9E00EF142F /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260AAC552E02DF9200EF142F /* WebExtension.swift */; };
+		260AAC5A2E02E0BC00EF142F /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26874F832B7E8768006D2DB4 /* UserDefaultsExtension.swift */; };
+		260AAC5C2E02E0CC00EF142F /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
+		260AAC5D2E02E0E900EF142F /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */; };
+		260AAC612E0323B600EF142F /* Web Extension.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 260AAC602E0323B600EF142F /* Web Extension.xcstrings */; platformFilters = (macos, ); };
 		260D54C62B8E466F00EA01A1 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
 		260D54C92B8E474B00EA01A1 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D54C72B8E471A00EA01A1 /* ViewExtension.swift */; };
 		260D54CA2B8E474B00EA01A1 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D54C72B8E471A00EA01A1 /* ViewExtension.swift */; };
 		260D54CF2B8E61DB00EA01A1 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 260D54CE2B8E61DB00EA01A1 /* EFQRCode */; };
+		26122E9B2E045134007E059B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAC7AD2C199CA700B7B471 /* StringExtension.swift */; };
+		26122E9E2E045159007E059B /* LocalizationTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26122E9C2E045159007E059B /* LocalizationTableName.swift */; };
+		26122E9F2E04517B007E059B /* LocalizationTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26122E9C2E045159007E059B /* LocalizationTableName.swift */; };
+		262A4B622DFA0D0500B46035 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265BDB972B73C12300DE21A9 /* Email.swift */; };
+		262A4B642DFA0D3400B46035 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26874F882B7E8AE4006D2DB4 /* DataContainer.swift */; };
+		262A4B692DFA0ECF00B46035 /* SharedUserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */; };
+		262A4B6A2DFA0EDB00B46035 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26874F832B7E8768006D2DB4 /* UserDefaultsExtension.swift */; };
+		262A4B6B2DFA0EEE00B46035 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
+		262A4B6D2DFA0FF500B46035 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4B6C2DFA0FF500B46035 /* DataContainer.swift */; };
+		262A4BEE2DFACBA300B46035 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BD72DFACBA300B46035 /* _locales */; };
+		262A4BEF2DFACBA300B46035 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BD82DFACBA300B46035 /* background.js */; };
+		262A4BF02DFACBA300B46035 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BD92DFACBA300B46035 /* content.js */; };
+		262A4BF12DFACBA300B46035 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BDA2DFACBA300B46035 /* images */; };
+		262A4BF22DFACBA300B46035 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BDB2DFACBA300B46035 /* manifest.json */; };
+		262A4BF42DFACBA300B46035 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BDE2DFACBA300B46035 /* Localizable.xcstrings */; };
+		262A4BF52DFACBA300B46035 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4BDF2DFACBA300B46035 /* SafariWebExtensionHandler.swift */; };
+		262A4C122DFACC4100B46035 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 262A4C112DFACC3B00B46035 /* src */; };
+		262A4C992DFD937900B46035 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4C982DFD936F00B46035 /* EmailHelper.swift */; };
+		262A4C9B2DFD96DB00B46035 /* AddViewWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4C9A2DFD96D700B46035 /* AddViewWindow.swift */; };
+		262A4C9D2DFDB77F00B46035 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4C9C2DFDB77400B46035 /* Menu.swift */; };
 		264EF30F2B6BEEDD00070BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264EF30E2B6BEEDD00070BCB /* ContentView.swift */; };
 		264EF3112B6BEF2A00070BCB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264EF3102B6BEF2A00070BCB /* RegisterView.swift */; };
 		264EF3132B6BF1A000070BCB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 264EF3122B6BF1A000070BCB /* .gitignore */; };
@@ -26,6 +57,12 @@
 		265BDB982B73C12300DE21A9 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265BDB972B73C12300DE21A9 /* Email.swift */; };
 		266332C42B9DFEB200C3F380 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */; };
 		266585212C18D140008DA8E3 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26874F882B7E8AE4006D2DB4 /* DataContainer.swift */; };
+		26690A422DFED3E8008C4F45 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26690A412DFED3E8008C4F45 /* Settings.bundle */; };
+		26690A432DFEDD9B008C4F45 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAC7AD2C199CA700B7B471 /* StringExtension.swift */; };
+		26690A462DFF3C15008C4F45 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, xros, ); productRef = 26690A452DFF3C15008C4F45 /* InAppSettingsKit */; };
+		26690A482E00A4BE008C4F45 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 26690A472E00A4BE008C4F45 /* AppIcon.icon */; };
+		26690A4A2E00A6B7008C4F45 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 26690A472E00A4BE008C4F45 /* AppIcon.icon */; };
+		26690A552E00B08B008C4F45 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26690A542E00B08B008C4F45 /* Launch Screen.storyboard */; platformFilters = (ios, xros, ); };
 		2677E3102B950EA100AC9DCA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E30F2B950EA100AC9DCA /* Toast.swift */; };
 		2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677E3112B95144200AC9DCA /* ColorExtension.swift */; };
 		26781B7C2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */; };
@@ -34,7 +71,6 @@
 		2692DE9E2B80A0BF0084763D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2692DE9D2B80A0BF0084763D /* InfoPlist.xcstrings */; };
 		26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */; };
 		26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A02B8B61B800ADD94E /* SettingsView.swift */; };
-		26A4F7A32B8B8CF100ADD94E /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A22B8B8CF100ADD94E /* UserDefaultKeys.swift */; };
 		26A4F7A72B8B8D1E00ADD94E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
 		26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */; };
 		26A4F7E12B8D17F900ADD94E /* third-party-licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */; };
@@ -44,7 +80,6 @@
 		26A9274E2B887906002B27E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A9274D2B887906002B27E1 /* ContentView.swift */; };
 		26A927502B887907002B27E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A9274F2B887907002B27E1 /* Assets.xcassets */; };
 		26A927532B887907002B27E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A927522B887907002B27E1 /* Preview Assets.xcassets */; };
-		26A927562B887907002B27E1 /* Email Alias.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 26A927492B887906002B27E1 /* Email Alias.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		26A9275B2B88797A002B27E1 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927422B887434002B27E1 /* KeychainService.swift */; };
 		26A9275C2B88797F002B27E1 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265BDB972B73C12300DE21A9 /* Email.swift */; };
 		26A9275E2B88799A002B27E1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 26A9275D2B88799A002B27E1 /* Localizable.xcstrings */; };
@@ -68,9 +103,39 @@
 		26BAC7AE2C199CAE00B7B471 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAC7AD2C199CA700B7B471 /* StringExtension.swift */; };
 		26D0D4132B8DE010002A99CD /* ColorSchemeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */; };
 		26D0D4152B8DE063002A99CD /* LanguageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0D4142B8DE063002A99CD /* LanguageExtension.swift */; };
+		26E3ECF52E035D8500ECF2E6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E3ECF22E035D8500ECF2E6 /* main.swift */; };
+		26E3ECF62E035D8500ECF2E6 /* LocalizationTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E3ECF32E035D8500ECF2E6 /* LocalizationTableName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2605D5AA2E034ACA00619888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26095AB52AE92A3000F272EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26A927482B887906002B27E1;
+			remoteInfo = "Email Alias Watch App";
+		};
+		2605D5AD2E034AE900619888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26095AB52AE92A3000F272EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 262A4B442DFA014C00B46035;
+			remoteInfo = "Safari Extension";
+		};
+		260AAC4D2E02D0A400EF142F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26095AB52AE92A3000F272EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 260AAC452E02CFA200EF142F;
+			remoteInfo = "Browser-CLI";
+		};
+		262A4B5B2DFA014C00B46035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26095AB52AE92A3000F272EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 262A4B442DFA014C00B46035;
+			remoteInfo = "Safari Extension macOS";
+		};
 		26A927542B887907002B27E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 26095AB52AE92A3000F272EA /* Project object */;
@@ -81,12 +146,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		260AAC442E02CFA200EF142F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		260AAC4F2E02D18600EF142F /* Embed Helper Tools */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				2605D5AF2E034AF500619888 /* Browser-CLI in Embed Helper Tools */,
+			);
+			name = "Embed Helper Tools";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26874F7E2B7E82EB006D2DB4 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2605D5AC2E034AE900619888 /* Safari Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +183,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				26A927562B887907002B27E1 /* Email Alias.app in Embed Watch Content */,
+				2605D5A92E034ACA00619888 /* Email Alias.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,7 +191,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26095ABD2AE92A3000F272EA /* Email Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Email Alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2605D5A02E034ABD00619888 /* Email Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Email Alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2605D5A12E034ABD00619888 /* Browser-CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Browser-CLI"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2605D5A22E034ABD00619888 /* Email Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Email Alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2605D5A32E034ABD00619888 /* Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26095AC02AE92A3000F272EA /* EmailAliasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAliasApp.swift; sourceTree = "<group>"; };
 		26095AC22AE92A3000F272EA /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		26095AC42AE92A3100F272EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,8 +204,27 @@
 		26095AD32AE93F4500F272EA /* SharedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStringExtension.swift; sourceTree = "<group>"; };
 		26095AD62AE9490200F272EA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		26095AD82AE9791400F272EA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		260AAC552E02DF9200EF142F /* WebExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebExtension.swift; sourceTree = "<group>"; };
+		260AAC602E0323B600EF142F /* Web Extension.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "Web Extension.xcstrings"; sourceTree = "<group>"; };
 		260D54C72B8E471A00EA01A1 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		26122E9C2E045159007E059B /* LocalizationTableName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTableName.swift; sourceTree = "<group>"; };
 		26186B3A2B8E8ECA007FBB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		262A4B6C2DFA0FF500B46035 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		262A4BD72DFACBA300B46035 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		262A4BD82DFACBA300B46035 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		262A4BD92DFACBA300B46035 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		262A4BDA2DFACBA300B46035 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		262A4BDB2DFACBA300B46035 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		262A4BDD2DFACBA300B46035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		262A4BDE2DFACBA300B46035 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		262A4BDF2DFACBA300B46035 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		262A4BE12DFACBA300B46035 /* Web Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Web Extension.entitlements"; sourceTree = "<group>"; };
+		262A4C112DFACC3B00B46035 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		262A4C132DFB191E00B46035 /* Email_Alias_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Email_Alias_macos.entitlements; sourceTree = "<group>"; };
+		262A4C142DFB1BC700B46035 /* Web Extension_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Web Extension_macos.entitlements"; sourceTree = "<group>"; };
+		262A4C982DFD936F00B46035 /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
+		262A4C9A2DFD96D700B46035 /* AddViewWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewWindow.swift; sourceTree = "<group>"; };
+		262A4C9C2DFDB77400B46035 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		264EF30E2B6BEEDD00070BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		264EF3102B6BEF2A00070BCB /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		264EF3122B6BF1A000070BCB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -125,6 +233,10 @@
 		26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailQrView.swift; sourceTree = "<group>"; };
 		265BDB972B73C12300DE21A9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		26690A412DFED3E8008C4F45 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		26690A472E00A4BE008C4F45 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		26690A532E00B08B008C4F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		26690A562E00B08B008C4F45 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = "mul.lproj/Launch Screen.xcstrings"; sourceTree = "<group>"; };
 		2677E30F2B950EA100AC9DCA /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		2677E3112B95144200AC9DCA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		26781B7B2B9F2EA8001A90D4 /* ModelContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContextExtension.swift; sourceTree = "<group>"; };
@@ -133,13 +245,11 @@
 		2692DE9D2B80A0BF0084763D /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		26A4F7A02B8B61B800ADD94E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		26A4F7A22B8B8CF100ADD94E /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		26A4F7A62B8B8D1E00ADD94E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWindowContextMenu.swift; sourceTree = "<group>"; };
 		26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "third-party-licenses.txt"; sourceTree = "<group>"; };
 		26A4F7E22B8D18B500ADD94E /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		26A927422B887434002B27E1 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
-		26A927492B887906002B27E1 /* Email Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Email Alias.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26A9274B2B887906002B27E1 /* EmailAliasWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAliasWatchApp.swift; sourceTree = "<group>"; };
 		26A9274D2B887906002B27E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26A9274F2B887907002B27E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,10 +269,28 @@
 		26BAC7AD2C199CA700B7B471 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeExtension.swift; sourceTree = "<group>"; };
 		26D0D4142B8DE063002A99CD /* LanguageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageExtension.swift; sourceTree = "<group>"; };
+		26E3ECF12E035D8500ECF2E6 /* Browser CLI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Browser CLI.entitlements"; sourceTree = "<group>"; };
+		26E3ECF22E035D8500ECF2E6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		26E3ECF32E035D8500ECF2E6 /* LocalizationTableName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTableName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		26095ABA2AE92A3000F272EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26690A462DFF3C15008C4F45 /* InAppSettingsKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		260AAC432E02CFA200EF142F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		262A4B422DFA014C00B46035 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -189,6 +317,8 @@
 				26874F852B7E8A86006D2DB4 /* Shared */,
 				26095ABF2AE92A3000F272EA /* Email Alias */,
 				26A9274A2B887906002B27E1 /* Email Alias Watch App */,
+				262A4BE22DFACBA300B46035 /* Safari Extension */,
+				26E3ECF42E035D8500ECF2E6 /* Browser-CLI */,
 				26095ABE2AE92A3000F272EA /* Products */,
 				26A927792B889FBB002B27E1 /* Frameworks */,
 			);
@@ -197,8 +327,10 @@
 		26095ABE2AE92A3000F272EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26095ABD2AE92A3000F272EA /* Email Alias.app */,
-				26A927492B887906002B27E1 /* Email Alias.app */,
+				2605D5A02E034ABD00619888 /* Email Alias.app */,
+				2605D5A12E034ABD00619888 /* Browser-CLI */,
+				2605D5A22E034ABD00619888 /* Email Alias.app */,
+				2605D5A32E034ABD00619888 /* Safari Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,11 +338,10 @@
 		26095ABF2AE92A3000F272EA /* Email Alias */ = {
 			isa = PBXGroup;
 			children = (
-				26874F882B7E8AE4006D2DB4 /* DataContainer.swift */,
+				262A4C9C2DFDB77400B46035 /* Menu.swift */,
+				262A4C9A2DFD96D700B46035 /* AddViewWindow.swift */,
+				262A4C982DFD936F00B46035 /* EmailHelper.swift */,
 				26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */,
-				26874F832B7E8768006D2DB4 /* UserDefaultsExtension.swift */,
-				26A4F7A22B8B8CF100ADD94E /* UserDefaultKeys.swift */,
-				26BAC7AD2C199CA700B7B471 /* StringExtension.swift */,
 				26A927892B88AA24002B27E1 /* WatchCommunicator.swift */,
 				26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */,
 				26D0D4142B8DE063002A99CD /* LanguageExtension.swift */,
@@ -226,11 +357,15 @@
 				26A927852B88A47B002B27E1 /* EmailDetailView.swift */,
 				2677E30F2B950EA100AC9DCA /* Toast.swift */,
 				26095AD62AE9490200F272EA /* Localizable.xcstrings */,
+				260AAC602E0323B600EF142F /* Web Extension.xcstrings */,
 				26095AC42AE92A3100F272EA /* Assets.xcassets */,
 				26095AC62AE92A3100F272EA /* Email_Alias.entitlements */,
+				262A4C132DFB191E00B46035 /* Email_Alias_macos.entitlements */,
 				26095AC72AE92A3100F272EA /* Preview Content */,
 				2692DE9D2B80A0BF0084763D /* InfoPlist.xcstrings */,
 				26186B3A2B8E8ECA007FBB9C /* Info.plist */,
+				26690A412DFED3E8008C4F45 /* Settings.bundle */,
+				26690A542E00B08B008C4F45 /* Launch Screen.storyboard */,
 			);
 			path = "Email Alias";
 			sourceTree = "<group>";
@@ -243,9 +378,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		262A4BDC2DFACBA300B46035 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				262A4C112DFACC3B00B46035 /* src */,
+				262A4BD72DFACBA300B46035 /* _locales */,
+				262A4BD82DFACBA300B46035 /* background.js */,
+				262A4BD92DFACBA300B46035 /* content.js */,
+				262A4BDA2DFACBA300B46035 /* images */,
+				262A4BDB2DFACBA300B46035 /* manifest.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		262A4BE22DFACBA300B46035 /* Safari Extension */ = {
+			isa = PBXGroup;
+			children = (
+				262A4BDC2DFACBA300B46035 /* Resources */,
+				262A4BDD2DFACBA300B46035 /* Info.plist */,
+				262A4BDE2DFACBA300B46035 /* Localizable.xcstrings */,
+				262A4BDF2DFACBA300B46035 /* SafariWebExtensionHandler.swift */,
+				262A4BE12DFACBA300B46035 /* Web Extension.entitlements */,
+				262A4C142DFB1BC700B46035 /* Web Extension_macos.entitlements */,
+			);
+			path = "Safari Extension";
+			sourceTree = "<group>";
+		};
 		26874F852B7E8A86006D2DB4 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				26690A472E00A4BE008C4F45 /* AppIcon.icon */,
 				26A927652B888BDA002B27E1 /* SharedUserDefaultKeys.swift */,
 				26A4F7A62B8B8D1E00ADD94E /* Language.swift */,
 				265BDB972B73C12300DE21A9 /* Email.swift */,
@@ -257,6 +419,11 @@
 				26A927722B889C9A002B27E1 /* ImageExtension.swift */,
 				260D54C72B8E471A00EA01A1 /* ViewExtension.swift */,
 				26567FEC2B81A0B800E6C8A4 /* EmailQrView.swift */,
+				26874F882B7E8AE4006D2DB4 /* DataContainer.swift */,
+				26874F832B7E8768006D2DB4 /* UserDefaultsExtension.swift */,
+				26BAC7AD2C199CA700B7B471 /* StringExtension.swift */,
+				26122E9C2E045159007E059B /* LocalizationTableName.swift */,
+				260AAC552E02DF9200EF142F /* WebExtension.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -264,6 +431,7 @@
 		26A9274A2B887906002B27E1 /* Email Alias Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				262A4B6C2DFA0FF500B46035 /* DataContainer.swift */,
 				26A9274B2B887906002B27E1 /* EmailAliasWatchApp.swift */,
 				26A9274D2B887906002B27E1 /* ContentView.swift */,
 				26A927692B888D90002B27E1 /* RegisterView.swift */,
@@ -296,6 +464,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		26E3ECF42E035D8500ECF2E6 /* Browser-CLI */ = {
+			isa = PBXGroup;
+			children = (
+				26E3ECF12E035D8500ECF2E6 /* Browser CLI.entitlements */,
+				26E3ECF22E035D8500ECF2E6 /* main.swift */,
+				26E3ECF32E035D8500ECF2E6 /* LocalizationTableName.swift */,
+			);
+			path = "Browser-CLI";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,18 +486,62 @@
 				26095ABB2AE92A3000F272EA /* Resources */,
 				26874F7E2B7E82EB006D2DB4 /* Embed Foundation Extensions */,
 				26A9275A2B887907002B27E1 /* Embed Watch Content */,
+				260AAC4F2E02D18600EF142F /* Embed Helper Tools */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				260AAC4E2E02D0A400EF142F /* PBXTargetDependency */,
 				26A927552B887907002B27E1 /* PBXTargetDependency */,
+				262A4B5C2DFA014C00B46035 /* PBXTargetDependency */,
+				2605D5AB2E034ACA00619888 /* PBXTargetDependency */,
+				2605D5AE2E034AE900619888 /* PBXTargetDependency */,
 			);
 			name = "Email Alias";
 			packageProductDependencies = (
+				26690A452DFF3C15008C4F45 /* InAppSettingsKit */,
 			);
 			productName = "Email Alias";
-			productReference = 26095ABD2AE92A3000F272EA /* Email Alias.app */;
+			productReference = 2605D5A02E034ABD00619888 /* Email Alias.app */;
 			productType = "com.apple.product-type.application";
+		};
+		260AAC452E02CFA200EF142F /* Browser-CLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 260AAC4A2E02CFA200EF142F /* Build configuration list for PBXNativeTarget "Browser-CLI" */;
+			buildPhases = (
+				260AAC422E02CFA200EF142F /* Sources */,
+				260AAC432E02CFA200EF142F /* Frameworks */,
+				260AAC442E02CFA200EF142F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Browser-CLI";
+			packageProductDependencies = (
+			);
+			productName = "Browser-CLI";
+			productReference = 2605D5A12E034ABD00619888 /* Browser-CLI */;
+			productType = "com.apple.product-type.tool";
+		};
+		262A4B442DFA014C00B46035 /* Safari Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 262A4B612DFA014C00B46035 /* Build configuration list for PBXNativeTarget "Safari Extension" */;
+			buildPhases = (
+				262A4B412DFA014C00B46035 /* Sources */,
+				262A4B422DFA014C00B46035 /* Frameworks */,
+				262A4B432DFA014C00B46035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Safari Extension";
+			packageProductDependencies = (
+			);
+			productName = "Safari Extension macOS";
+			productReference = 2605D5A32E034ABD00619888 /* Safari Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		26A927482B887906002B27E1 /* Email Alias Watch App */ = {
 			isa = PBXNativeTarget;
@@ -338,7 +560,7 @@
 				260D54CE2B8E61DB00EA01A1 /* EFQRCode */,
 			);
 			productName = "Email Alias Watch Watch App";
-			productReference = 26A927492B887906002B27E1 /* Email Alias.app */;
+			productReference = 2605D5A22E034ABD00619888 /* Email Alias.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -348,11 +570,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1600;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					26095ABC2AE92A3000F272EA = {
 						CreatedOnToolsVersion = 15.1;
+					};
+					260AAC452E02CFA200EF142F = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					262A4B442DFA014C00B46035 = {
+						CreatedOnToolsVersion = 26.0;
 					};
 					26A927482B887906002B27E1 = {
 						CreatedOnToolsVersion = 15.3;
@@ -371,6 +599,7 @@
 			mainGroup = 26095AB42AE92A3000F272EA;
 			packageReferences = (
 				260D54CD2B8E61DB00EA01A1 /* XCRemoteSwiftPackageReference "EFQRCode" */,
+				26690A442DFF3C15008C4F45 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
 			);
 			productRefGroup = 26095ABE2AE92A3000F272EA /* Products */;
 			projectDirPath = "";
@@ -378,6 +607,8 @@
 			targets = (
 				26095ABC2AE92A3000F272EA /* Email Alias */,
 				26A927482B887906002B27E1 /* Email Alias Watch App */,
+				262A4B442DFA014C00B46035 /* Safari Extension */,
+				260AAC452E02CFA200EF142F /* Browser-CLI */,
 			);
 		};
 /* End PBXProject section */
@@ -389,9 +620,27 @@
 			files = (
 				264EF3132B6BF1A000070BCB /* .gitignore in Resources */,
 				2692DE9E2B80A0BF0084763D /* InfoPlist.xcstrings in Resources */,
+				26690A552E00B08B008C4F45 /* Launch Screen.storyboard in Resources */,
+				26690A482E00A4BE008C4F45 /* AppIcon.icon in Resources */,
 				26095AC92AE92A3100F272EA /* Preview Assets.xcassets in Resources */,
 				26095AC52AE92A3100F272EA /* Assets.xcassets in Resources */,
+				26690A422DFED3E8008C4F45 /* Settings.bundle in Resources */,
 				26095AD72AE9490200F272EA /* Localizable.xcstrings in Resources */,
+				260AAC612E0323B600EF142F /* Web Extension.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		262A4B432DFA014C00B46035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				262A4C122DFACC4100B46035 /* src in Resources */,
+				262A4BEE2DFACBA300B46035 /* _locales in Resources */,
+				262A4BEF2DFACBA300B46035 /* background.js in Resources */,
+				262A4BF02DFACBA300B46035 /* content.js in Resources */,
+				262A4BF12DFACBA300B46035 /* images in Resources */,
+				262A4BF22DFACBA300B46035 /* manifest.json in Resources */,
+				262A4BF42DFACBA300B46035 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +649,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26A927532B887907002B27E1 /* Preview Assets.xcassets in Resources */,
+				26690A4A2E00A6B7008C4F45 /* AppIcon.icon in Resources */,
 				26A4F7E12B8D17F900ADD94E /* third-party-licenses.txt in Resources */,
 				26A927502B887907002B27E1 /* Assets.xcassets in Resources */,
 				26A927602B8879A7002B27E1 /* InfoPlist.xcstrings in Resources */,
@@ -417,20 +667,22 @@
 				26874F842B7E8768006D2DB4 /* UserDefaultsExtension.swift in Sources */,
 				26A927632B888B18002B27E1 /* TestEmails.swift in Sources */,
 				26A927672B888BEE002B27E1 /* SharedUserDefaultKeys.swift in Sources */,
-				26A4F7A32B8B8CF100ADD94E /* UserDefaultKeys.swift in Sources */,
 				26BAC7AE2C199CAE00B7B471 /* StringExtension.swift in Sources */,
 				26095AD42AE93F4500F272EA /* SharedStringExtension.swift in Sources */,
 				26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */,
 				26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */,
 				2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */,
 				26D0D4132B8DE010002A99CD /* ColorSchemeExtension.swift in Sources */,
+				262A4C9B2DFD96DB00B46035 /* AddViewWindow.swift in Sources */,
 				26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */,
 				26095AC32AE92A3000F272EA /* EmailView.swift in Sources */,
+				26122E9E2E045159007E059B /* LocalizationTableName.swift in Sources */,
 				264EF30F2B6BEEDD00070BCB /* ContentView.swift in Sources */,
 				266585212C18D140008DA8E3 /* DataContainer.swift in Sources */,
 				264EF3112B6BEF2A00070BCB /* RegisterView.swift in Sources */,
 				26A927862B88A47B002B27E1 /* EmailDetailView.swift in Sources */,
 				265BDB982B73C12300DE21A9 /* Email.swift in Sources */,
+				262A4C992DFD937900B46035 /* EmailHelper.swift in Sources */,
 				26A927812B88A296002B27E1 /* ImageExtension.swift in Sources */,
 				266332C42B9DFEB200C3F380 /* CheckboxToggleStyle.swift in Sources */,
 				26A9278A2B88AA24002B27E1 /* WatchCommunicator.swift in Sources */,
@@ -440,10 +692,43 @@
 				26A927432B887434002B27E1 /* KeychainService.swift in Sources */,
 				26781B7C2B9F2EA8001A90D4 /* ModelContextExtension.swift in Sources */,
 				260D54CA2B8E474B00EA01A1 /* ViewExtension.swift in Sources */,
+				262A4C9D2DFDB77F00B46035 /* Menu.swift in Sources */,
 				26567FED2B81A0B800E6C8A4 /* EmailQrView.swift in Sources */,
 				26D0D4152B8DE063002A99CD /* LanguageExtension.swift in Sources */,
 				26095AD92AE9791400F272EA /* AddView.swift in Sources */,
 				26A4F7A72B8B8D1E00ADD94E /* Language.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		260AAC422E02CFA200EF142F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				260AAC5A2E02E0BC00EF142F /* UserDefaultsExtension.swift in Sources */,
+				26E3ECF52E035D8500ECF2E6 /* main.swift in Sources */,
+				26E3ECF62E035D8500ECF2E6 /* LocalizationTableName.swift in Sources */,
+				260AAC592E02DF9E00EF142F /* WebExtension.swift in Sources */,
+				260AAC5C2E02E0CC00EF142F /* Language.swift in Sources */,
+				26122E9B2E045134007E059B /* StringExtension.swift in Sources */,
+				260AAC522E02D37C00EF142F /* Email.swift in Sources */,
+				260AAC5D2E02E0E900EF142F /* SharedUserDefaultKeys.swift in Sources */,
+				260AAC532E02D39500EF142F /* DataContainer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		262A4B412DFA014C00B46035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				260AAC582E02DF9200EF142F /* WebExtension.swift in Sources */,
+				262A4B692DFA0ECF00B46035 /* SharedUserDefaultKeys.swift in Sources */,
+				262A4B622DFA0D0500B46035 /* Email.swift in Sources */,
+				262A4B6B2DFA0EEE00B46035 /* Language.swift in Sources */,
+				262A4BF52DFACBA300B46035 /* SafariWebExtensionHandler.swift in Sources */,
+				26690A432DFEDD9B008C4F45 /* StringExtension.swift in Sources */,
+				26122E9F2E04517B007E059B /* LocalizationTableName.swift in Sources */,
+				262A4B6A2DFA0EDB00B46035 /* UserDefaultsExtension.swift in Sources */,
+				262A4B642DFA0D3400B46035 /* DataContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +747,7 @@
 				26A927662B888BDA002B27E1 /* SharedUserDefaultKeys.swift in Sources */,
 				26A9275C2B88797F002B27E1 /* Email.swift in Sources */,
 				26A927642B888BA6002B27E1 /* API.swift in Sources */,
+				262A4B6D2DFA0FF500B46035 /* DataContainer.swift in Sources */,
 				26A9276F2B889A3A002B27E1 /* SharedStringExtension.swift in Sources */,
 				26A9275B2B88797A002B27E1 /* KeychainService.swift in Sources */,
 				26A9276E2B889A22002B27E1 /* AddEmailView.swift in Sources */,
@@ -476,6 +762,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2605D5AB2E034ACA00619888 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26A927482B887906002B27E1 /* Email Alias Watch App */;
+			targetProxy = 2605D5AA2E034ACA00619888 /* PBXContainerItemProxy */;
+		};
+		2605D5AE2E034AE900619888 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 262A4B442DFA014C00B46035 /* Safari Extension */;
+			targetProxy = 2605D5AD2E034AE900619888 /* PBXContainerItemProxy */;
+		};
+		260AAC4E2E02D0A400EF142F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilters = (
+				macos,
+			);
+			target = 260AAC452E02CFA200EF142F /* Browser-CLI */;
+			targetProxy = 260AAC4D2E02D0A400EF142F /* PBXContainerItemProxy */;
+		};
+		262A4B5C2DFA014C00B46035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 262A4B442DFA014C00B46035 /* Safari Extension */;
+			targetProxy = 262A4B5B2DFA014C00B46035 /* PBXContainerItemProxy */;
+		};
 		26A927552B887907002B27E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
@@ -483,6 +792,18 @@
 			targetProxy = 26A927542B887907002B27E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		26690A542E00B08B008C4F45 /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26690A532E00B08B008C4F45 /* Base */,
+				26690A562E00B08B008C4F45 /* mul */,
+			);
+			name = "Launch Screen.storyboard";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		26095ACA2AE92A3100F272EA /* Debug */ = {
@@ -522,6 +843,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BHUJ88RV68;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -543,6 +865,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -599,6 +922,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BHUJ88RV68;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -613,6 +937,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
@@ -636,14 +961,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
 				CODE_SIGN_ENTITLEMENTS = "Email Alias/Email_Alias.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Email Alias/Email_Alias_macos.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Email Alias/Preview Content\"";
-				DEVELOPMENT_TEAM = BHUJ88RV68;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Email Alias/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -664,9 +994,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.opdehipt.Email-Alias";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_ENABLE_BARE_SLASH_REGEX = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -694,14 +1027,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
 				CODE_SIGN_ENTITLEMENTS = "Email Alias/Email_Alias.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Email Alias/Email_Alias_macos.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Email Alias/Preview Content\"";
-				DEVELOPMENT_TEAM = BHUJ88RV68;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Email Alias/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -722,9 +1060,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.opdehipt.Email-Alias";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_ENABLE_BARE_SLASH_REGEX = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
@@ -747,6 +1088,122 @@
 			};
 			name = Release;
 		};
+		260AAC4B2E02CFA200EF142F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Browser-CLI/Browser CLI.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BHUJ88RV68;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.opdehipt.Email-Alias.Browser-CLI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		260AAC4C2E02CFA200EF142F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Browser-CLI/Browser CLI.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BHUJ88RV68;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.opdehipt.Email-Alias.Browser-CLI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		262A4B5E2DFA014C00B46035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Safari Extension/Web Extension.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Safari Extension/Web Extension_macos.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Safari Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.opdehipt.Email-Alias.Safari-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		262A4B5F2DFA014C00B46035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Safari Extension/Web Extension.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Safari Extension/Web Extension_macos.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Safari Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.opdehipt.Email-Alias.Safari-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		26A927582B887907002B27E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -755,7 +1212,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Email Alias Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = BHUJ88RV68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Email Alias";
@@ -770,6 +1226,8 @@
 				PRODUCT_NAME = "Email Alias";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
@@ -798,7 +1256,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Email Alias Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = BHUJ88RV68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Email Alias";
@@ -813,6 +1270,8 @@
 				PRODUCT_NAME = "Email Alias";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
@@ -855,6 +1314,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		260AAC4A2E02CFA200EF142F /* Build configuration list for PBXNativeTarget "Browser-CLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				260AAC4B2E02CFA200EF142F /* Debug */,
+				260AAC4C2E02CFA200EF142F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		262A4B612DFA014C00B46035 /* Build configuration list for PBXNativeTarget "Safari Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				262A4B5E2DFA014C00B46035 /* Debug */,
+				262A4B5F2DFA014C00B46035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		26A927572B887907002B27E1 /* Build configuration list for PBXNativeTarget "Email Alias Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -875,6 +1352,14 @@
 				kind = branch;
 			};
 		};
+		26690A442DFF3C15008C4F45 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -882,6 +1367,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 260D54CD2B8E61DB00EA01A1 /* XCRemoteSwiftPackageReference "EFQRCode" */;
 			productName = EFQRCode;
+		};
+		26690A452DFF3C15008C4F45 /* InAppSettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26690A442DFF3C15008C4F45 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
+			productName = InAppSettingsKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

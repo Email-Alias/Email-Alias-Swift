@@ -193,6 +193,16 @@
         }
       }
     },
+    "QR Code for %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR Code für %@"
+          }
+        }
+      }
+    },
     "Register" : {
       "localizations" : {
         "de" : {
@@ -221,6 +231,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reload"
+          }
+        }
+      }
+    },
+    "Share the qr code" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teile den QR-Code"
           }
         }
       }

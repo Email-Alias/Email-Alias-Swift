@@ -11,13 +11,19 @@ import SwiftData
 struct EmailDetailView: View {
     let email: Email
     
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView {
-            EmailQRView(email: email)
-            EmailInfoView(email: email)
+        TabView(selection: $selectedTab) {
+            let qrView = EmailQRView(email: email)
+            EmailInfoView(email: email, qrView: qrView)
+                .navigationTitle(email.privateComment)
+                .tag(0)
+            qrView
+                .tag(1)
         }
         .tabViewStyle(.carousel)
-        .navigationTitle(email.privateComment)
+        .navigationBarBackButtonHidden(selectedTab == 1)
     }
 }
 

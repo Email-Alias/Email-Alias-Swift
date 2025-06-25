@@ -44,12 +44,17 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>3</integer>
+		</dict>
+		<key>Browser-CLI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Email Alias Watch App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Email Alias.xcscheme_^#shared#^_</key>
 		<dict>
@@ -96,7 +101,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>4</integer>
 		</dict>
 		<key>README (Playground) 1.xcscheme</key>
 		<dict>
@@ -138,7 +143,12 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
+		</dict>
+		<key>Safari Extension macOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>User Guide (Playground) 1.xcscheme</key>
 		<dict>
@@ -186,6 +196,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>26095ABC2AE92A3000F272EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>262A4B442DFA014C00B46035</key>
 		<dict>
 			<key>primary</key>
 			<true/>

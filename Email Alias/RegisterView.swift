@@ -11,6 +11,7 @@ struct RegisterView: View {
     @Environment(\.modelContext) private var modelContext
     
     @Binding var registered: Bool
+    @Binding var showSettings: Bool
 
     @FocusState private var domainFocused
     @FocusState private var emailFocused
@@ -76,11 +77,11 @@ struct RegisterView: View {
             .padding()
             .frame(maxWidth: 800)
             .navigationTitle("Register")
+            #if !os(macOS)
             .toolbar {
-                #if !os(macOS)
-                SettingsButton()
-                #endif
+                SettingsButton(showSettings: $showSettings)
             }
+            #endif
             .onAppear {
                 domainFocused = true
             }
@@ -115,6 +116,7 @@ struct RegisterView: View {
 
 #Preview {
     @Previewable @State var registered = false
-    RegisterView(registered: $registered)
+    @Previewable @State var showSettings = false
+    RegisterView(registered: $registered, showSettings: $showSettings)
         .modelContainer(for: Email.self, inMemory: true)
 }

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path
+  d="
+    M 160,-800
+    h 640
+    a 80,80 0 0 1  80,80
+    v 480
+    a 80,80 0 0 1 -80,80
+    h -640
+    a 80,80 0 0 1 -80,-80
+    v -480
+    a 80,80 0 0 1  80,-80
+    z
+    M 160,-720
+    h 640
+    v 480
+    h -640
+    z
+  "
+  fill="black"
+  fill-rule="evenodd"
+/>
+</svg>

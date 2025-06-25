@@ -107,10 +107,13 @@ struct EmailView: View {
         }
         else {
             do {
-                if (!(try await API.addEmail(emails: emails, address: address, privateComment: comment))) {
-                    return
-                }
-                await reload()
+                let emails = self.emails
+                try await Task {
+                    if !(try await API.addEmail(emails: emails, address: address, privateComment: comment, additionalGotos: [])) {
+                        return
+                    }
+                    await reload()
+                }.value
             }
             catch {
                 showAddAlert = true
@@ -121,10 +124,13 @@ struct EmailView: View {
     private func deleteEmail(indicies: IndexSet) async {
         do {
             if !API.testMode {
-                if !(try await API.deleteEmails(emails: indicies.map { emails[$0] })) {
-                    showDeleteAlert = true
-                    return
-                }
+                let emails = indicies.map { self.emails[$0] }
+                try await Task {
+                    if !(try await API.deleteEmails(emails: emails)) {
+                        showDeleteAlert = true
+                        return
+                    }
+                }.value
             }
             for i in indicies {
                 modelContext.delete(emails[i])

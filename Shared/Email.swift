@@ -8,9 +8,9 @@
 import SwiftData
 import Foundation
 
-actor EmailsSchemaV1: VersionedSchema {
+actor EmailsSchemaV1: @MainActor VersionedSchema {
     static let versionIdentifier = Schema.Version(1, 0, 0)
-    static let models: [any PersistentModel.Type] = [Email.self]
+    @MainActor static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
@@ -60,9 +60,9 @@ actor EmailsSchemaV1: VersionedSchema {
     }
 }
 
-actor EmailsSchemaV2: VersionedSchema {
+actor EmailsSchemaV2: @MainActor VersionedSchema {
     static let versionIdentifier = Schema.Version(2, 0, 0)
-    static let models: [any PersistentModel.Type] = [Email.self]
+    @MainActor static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
@@ -118,9 +118,9 @@ actor EmailsSchemaV2: VersionedSchema {
     }
 }
 
-actor EmailsSchemaV3: VersionedSchema {
+actor EmailsSchemaV3: @MainActor VersionedSchema {
     static let versionIdentifier = Schema.Version(3, 0, 0)
-    static let models: [any PersistentModel.Type] = [Email.self]
+    @MainActor static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
     final class Email: Identifiable, Codable, Equatable {
@@ -185,12 +185,12 @@ actor EmailsSchemaV3: VersionedSchema {
     }
 }
 
-actor EmailsSchemaV4: VersionedSchema {
+actor EmailsSchemaV4: @MainActor VersionedSchema {
     static let versionIdentifier = Schema.Version(4, 0, 0)
-    static let models: [any PersistentModel.Type] = [Email.self]
+    @MainActor static let models: [any PersistentModel.Type] = [Email.self]
 
     @Model
-    final class Email: Identifiable, Codable, Equatable {
+    final class Email: Identifiable, Codable, Equatable, Copyable {
         #Index<Email>([\.address], [\.privateComment], [\.gotos], [\.active])
         #Unique<Email>([\.privateComment], [\.address])
         var id: Int
@@ -254,13 +254,13 @@ actor EmailsSchemaV4: VersionedSchema {
     }
 }
 
-actor EmailsMigrationPlan: SchemaMigrationPlan {
-    private static var v2EmailsToMigrate: [(Int, String, String, String, Bool)] = []
+actor EmailsMigrationPlan: @MainActor SchemaMigrationPlan {
+    @MainActor private static var v2EmailsToMigrate: [(Int, String, String, String, Bool)] = []
     
-    static let schemas: [any VersionedSchema.Type] = [EmailsSchemaV1.self, EmailsSchemaV2.self, EmailsSchemaV3.self, EmailsSchemaV4.self]
+    @MainActor static let schemas: [any VersionedSchema.Type] = [EmailsSchemaV1.self, EmailsSchemaV2.self, EmailsSchemaV3.self, EmailsSchemaV4.self]
     
-    private static let migrateV1toV2 = MigrationStage.lightweight(fromVersion: EmailsSchemaV1.self, toVersion: EmailsSchemaV2.self)
-    private static let migrateV2toV3 = MigrationStage.custom(fromVersion: EmailsSchemaV2.self, toVersion: EmailsSchemaV3.self) { context in
+    @MainActor private static let migrateV1toV2 = MigrationStage.lightweight(fromVersion: EmailsSchemaV1.self, toVersion: EmailsSchemaV2.self)
+    @MainActor private static let migrateV2toV3 = MigrationStage.custom(fromVersion: EmailsSchemaV2.self, toVersion: EmailsSchemaV3.self) { context in
         let emails = try context.fetch(FetchDescriptor<EmailsSchemaV2.Email>())
         v2EmailsToMigrate = emails.map { email in
             (email.id, email.address, email.privateComment, email.goto, email.active)
@@ -272,9 +272,9 @@ actor EmailsMigrationPlan: SchemaMigrationPlan {
             let emailV3 = EmailsSchemaV3.Email(id: id, address: address, privateComment: privateComment, goto: [goto], active: active)
         }
     }
-    private static let migrateV3toV4 = MigrationStage.lightweight(fromVersion: EmailsSchemaV3.self, toVersion: EmailsSchemaV4.self)
+    @MainActor private static let migrateV3toV4 = MigrationStage.lightweight(fromVersion: EmailsSchemaV3.self, toVersion: EmailsSchemaV4.self)
 
-    static let stages: [MigrationStage] = [migrateV1toV2, migrateV2toV3, migrateV3toV4]
+    @MainActor static let stages: [MigrationStage] = [migrateV1toV2, migrateV2toV3, migrateV3toV4]
 }
 
 typealias Email = EmailsSchemaV4.Email

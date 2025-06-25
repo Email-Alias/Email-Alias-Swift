@@ -1,0 +1,1 @@
+async function getCurrentDomain(){return await new Promise(e=>{browser.tabs.query({active:!0,lastFocusedWindow:!0},t=>{e(t[0].url.split("/")[2].split(".").reverse()[1])})})}async function getConfig(){return await new Promise(e=>{browser.runtime.sendNativeMessage("com.opdehipt.Email-Alias","getAliases",function(t){e(t)})})}

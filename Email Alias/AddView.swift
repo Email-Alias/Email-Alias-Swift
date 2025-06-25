@@ -12,6 +12,7 @@ struct AddView: View {
     let emails: [Email]
     let addEmail: (String, String, String) async -> Bool
 
+    @EnvironmentObject private var menuState: MenuState
     @Environment(\.dismiss) private var dismiss
     @AppStorage(.email) private var email = ""
     
@@ -26,8 +27,8 @@ struct AddView: View {
     @State private var showFormAlert = false
     
     var body: some View {
+        let domain = email.split(separator: "@").last
         VStack {
-            let domain = email.split(separator: "@").last
             HStack(spacing: 0, content: {
                 ZStack(alignment: .trailing) {
                     TextField("Alias", text: $alias)
@@ -37,20 +38,11 @@ struct AddView: View {
                             descriptionFocused = true
                         }
                     Button {
-                        repeat {
-                            alias = String.random(length: 20)
-                        }
-                        while alias.starts(with: ".") || (domain != nil && emails.contains { $0.address == "\(alias)@\(domain!)" })
-                        descriptionFocused = true
+                        generateRandomAlias(domain: domain)
                     } label: {
-                        #if !os(macOS)
-                            Text("Generate random alias")
-                                .opacity(0)
-                        #endif
                         Image(systemName: "dice")
                             .accessibilityLabel(Text("Generate random alias"))
                     }
-                    .keyboardShortcut(KeyEquivalent("R"), modifiers: [.command, .shift])
                 }
                 if let domain, !domain.isEmpty {
                     Text("@\(String(domain))")
@@ -96,6 +88,9 @@ struct AddView: View {
         .onAppear {
             aliasFocused = true
         }
+        .conditionalFocusedValue(\.generateRandomAlias) {
+            generateRandomAlias(domain: domain)
+        }
     }
     
     private func addEmail() async {
@@ -116,6 +111,46 @@ struct AddView: View {
         else {
             showExistsAlert = true
         }
+    }
+    
+    private func generateRandomAlias(domain: Substring?) {
+        if let domain {
+            repeat {
+                alias = String.random(length: 20)
+            }
+            while alias.starts(with: ".") || emails.contains { $0.address == "\(alias)@\(domain)" }
+            descriptionFocused = true
+        }
+    }
+}
+
+extension View {
+    func addViewAlerts(showReloadAlert: Binding<Bool>, showAddAlert: Binding<Bool>, showCopyAlert: Binding<Bool>) -> some View {
+        alert("Error at loading the emails", isPresented: showReloadAlert) {
+            EmptyView()
+        }
+        .alert("Error at adding an email", isPresented: showAddAlert) {
+            EmptyView()
+        }
+        .toast(message: "Email copied to clipboard", isShowing: showCopyAlert)
+    }
+    
+    func conditionalFocusedValue<Value>(
+        _ keyPath: WritableKeyPath<FocusedValues, Value?>,
+        _ value: Value
+    ) -> some View {
+        #if os(iOS)
+        Group {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                self
+            }
+            else {
+                self.focusedValue(keyPath, value)
+            }
+        }
+        #else
+        self.focusedValue(keyPath, value)
+        #endif
     }
 }
 

@@ -1,0 +1,3 @@
+[submodule "Safari Extension/Resources/Angular"]
+	path = Safari Extension/Resources/Angular
+	url = https://github.com/Email-Alias/Email-Alias-Angular.git

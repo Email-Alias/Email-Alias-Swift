@@ -9,13 +9,8 @@ import SwiftUI
 import WatchConnectivity
 import SwiftData
 
-private let container = try! ModelContainer(
-    for: Email.self,
-    migrationPlan: EmailsMigrationPlan.self,
-    configurations: ModelConfiguration(for: Email.self, isStoredInMemoryOnly: false)
-)
-
 class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
+    let context = DataContainer.shared.container.mainContext
     let session = WCSession.default
     
     func applicationDidFinishLaunching() {
@@ -36,7 +31,7 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
                 if await API.testMode {
                     UserDefaults.standard.set(7, forKey: .nextID)
                     await MainActor.run {
-                        insertTestEmails(into: container.mainContext)
+                        insertTestEmails(into: context)
                     }
                 }
                 
@@ -46,7 +41,7 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
             Task {
                 do {
                     try await MainActor.run {
-                        try container.mainContext.delete(model: Email.self)
+                        try context.delete(model: Email.self)
                     }
                     UserDefaults.standard.removeObject(forKey: .domain)
                     UserDefaults.standard.removeObject(forKey: .email)
@@ -56,12 +51,10 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
                 }
                 catch {}
             }
-        case "settings":
-            UserDefaults.standard.setValue(userInfo[.language], forKey: .language)
         case "clearCache":
             Task {
                 await MainActor.run {
-                    try? container.mainContext.delete(model: Email.self)
+                    try? context.delete(model: Email.self)
                 }
             }
         default:
@@ -74,13 +67,10 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
 struct EmailAliasWatchApp: App {
     @WKApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
-    @AppStorage(.language) private var language: Language = .system
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(container)
-                .language(language)
+                .modelContainer(DataContainer.shared.container)
         }
     }
 }

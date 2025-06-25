@@ -29,7 +29,6 @@
 		260D54C62B8E466F00EA01A1 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
 		260D54C92B8E474B00EA01A1 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D54C72B8E471A00EA01A1 /* ViewExtension.swift */; };
 		260D54CA2B8E474B00EA01A1 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260D54C72B8E471A00EA01A1 /* ViewExtension.swift */; };
-		260D54CF2B8E61DB00EA01A1 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 260D54CE2B8E61DB00EA01A1 /* EFQRCode */; };
 		26122E9B2E045134007E059B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAC7AD2C199CA700B7B471 /* StringExtension.swift */; };
 		26122E9E2E045159007E059B /* LocalizationTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26122E9C2E045159007E059B /* LocalizationTableName.swift */; };
 		26122E9F2E04517B007E059B /* LocalizationTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26122E9C2E045159007E059B /* LocalizationTableName.swift */; };
@@ -50,6 +49,8 @@
 		262A4C992DFD937900B46035 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4C982DFD936F00B46035 /* EmailHelper.swift */; };
 		262A4C9B2DFD96DB00B46035 /* AddViewWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4C9A2DFD96D700B46035 /* AddViewWindow.swift */; };
 		262A4C9D2DFDB77F00B46035 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4C9C2DFDB77400B46035 /* Menu.swift */; };
+		263E38FA2E0C0E03005240D1 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, xros, ); productRef = 263E38F92E0C0E03005240D1 /* InAppSettingsKit */; };
+		263E39032E0C5131005240D1 /* QRCodeGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 263E39022E0C5131005240D1 /* QRCodeGenerator */; };
 		264EF30F2B6BEEDD00070BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264EF30E2B6BEEDD00070BCB /* ContentView.swift */; };
 		264EF3112B6BEF2A00070BCB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264EF3102B6BEF2A00070BCB /* RegisterView.swift */; };
 		264EF3132B6BF1A000070BCB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 264EF3122B6BF1A000070BCB /* .gitignore */; };
@@ -59,7 +60,6 @@
 		266585212C18D140008DA8E3 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26874F882B7E8AE4006D2DB4 /* DataContainer.swift */; };
 		26690A422DFED3E8008C4F45 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26690A412DFED3E8008C4F45 /* Settings.bundle */; };
 		26690A432DFEDD9B008C4F45 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAC7AD2C199CA700B7B471 /* StringExtension.swift */; };
-		26690A462DFF3C15008C4F45 /* InAppSettingsKit in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, xros, ); productRef = 26690A452DFF3C15008C4F45 /* InAppSettingsKit */; };
 		26690A482E00A4BE008C4F45 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 26690A472E00A4BE008C4F45 /* AppIcon.icon */; };
 		26690A4A2E00A6B7008C4F45 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 26690A472E00A4BE008C4F45 /* AppIcon.icon */; };
 		26690A552E00B08B008C4F45 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26690A542E00B08B008C4F45 /* Launch Screen.storyboard */; platformFilters = (ios, xros, ); };
@@ -279,7 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26690A462DFF3C15008C4F45 /* InAppSettingsKit in Frameworks */,
+				263E38FA2E0C0E03005240D1 /* InAppSettingsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				260D54CF2B8E61DB00EA01A1 /* EFQRCode in Frameworks */,
+				263E39032E0C5131005240D1 /* QRCodeGenerator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +499,7 @@
 			);
 			name = "Email Alias";
 			packageProductDependencies = (
-				26690A452DFF3C15008C4F45 /* InAppSettingsKit */,
+				263E38F92E0C0E03005240D1 /* InAppSettingsKit */,
 			);
 			productName = "Email Alias";
 			productReference = 2605D5A02E034ABD00619888 /* Email Alias.app */;
@@ -557,7 +557,7 @@
 			);
 			name = "Email Alias Watch App";
 			packageProductDependencies = (
-				260D54CE2B8E61DB00EA01A1 /* EFQRCode */,
+				263E39022E0C5131005240D1 /* QRCodeGenerator */,
 			);
 			productName = "Email Alias Watch Watch App";
 			productReference = 2605D5A22E034ABD00619888 /* Email Alias.app */;
@@ -598,8 +598,8 @@
 			);
 			mainGroup = 26095AB42AE92A3000F272EA;
 			packageReferences = (
-				260D54CD2B8E61DB00EA01A1 /* XCRemoteSwiftPackageReference "EFQRCode" */,
-				26690A442DFF3C15008C4F45 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
+				263E38F82E0C0E03005240D1 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */,
+				263E39012E0C4F95005240D1 /* XCRemoteSwiftPackageReference "swift-qrcode-generator" */,
 			);
 			productRefGroup = 26095ABE2AE92A3000F272EA /* Products */;
 			projectDirPath = "";
@@ -1344,34 +1344,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		260D54CD2B8E61DB00EA01A1 /* XCRemoteSwiftPackageReference "EFQRCode" */ = {
+		263E38F82E0C0E03005240D1 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/EFPrefix/EFQRCode";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		26690A442DFF3C15008C4F45 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/futuretap/InAppSettingsKit.git";
+			repositoryURL = "https://github.com/futuretap/InAppSettingsKit";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.8.5;
 			};
 		};
+		263E39012E0C4F95005240D1 /* XCRemoteSwiftPackageReference "swift-qrcode-generator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fwcd/swift-qrcode-generator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		260D54CE2B8E61DB00EA01A1 /* EFQRCode */ = {
+		263E38F92E0C0E03005240D1 /* InAppSettingsKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 260D54CD2B8E61DB00EA01A1 /* XCRemoteSwiftPackageReference "EFQRCode" */;
-			productName = EFQRCode;
-		};
-		26690A452DFF3C15008C4F45 /* InAppSettingsKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 26690A442DFF3C15008C4F45 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
+			package = 263E38F82E0C0E03005240D1 /* XCRemoteSwiftPackageReference "InAppSettingsKit" */;
 			productName = InAppSettingsKit;
+		};
+		263E39022E0C5131005240D1 /* QRCodeGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 263E39012E0C4F95005240D1 /* XCRemoteSwiftPackageReference "swift-qrcode-generator" */;
+			productName = QRCodeGenerator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

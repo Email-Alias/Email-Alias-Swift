@@ -1,31 +1,22 @@
 {
-  "originHash" : "46c10f9f6625d343530c43222f52437d891445b05173fda84d12d99bb5979567",
+  "originHash" : "f5ca3fb22dcf325a564ab085218f3dde246523b02c59c438c669a62f6cfb7b77",
   "pins" : [
-    {
-      "identity" : "efqrcode",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/EFPrefix/EFQRCode",
-      "state" : {
-        "branch" : "main",
-        "revision" : "3a6c5012f1a0df404a92e55bb01b4b685ff5a2d1"
-      }
-    },
     {
       "identity" : "inappsettingskit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/futuretap/InAppSettingsKit.git",
+      "location" : "https://github.com/futuretap/InAppSettingsKit",
       "state" : {
         "revision" : "b60959ac31106a404774f641e063096014269188",
         "version" : "3.8.5"
       }
     },
     {
-      "identity" : "swift_qrcodejs",
+      "identity" : "swift-qrcode-generator",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/EFPrefix/swift_qrcodejs.git",
+      "location" : "https://github.com/fwcd/swift-qrcode-generator",
       "state" : {
-        "revision" : "817ba220a2eba840bae888e7eeb11207bec05f8c",
-        "version" : "2.3.0"
+        "revision" : "2b1980b825f08a81ccc762b0c4d17fcde9d5e953",
+        "version" : "2.0.2"
       }
     }
   ],

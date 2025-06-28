@@ -61,11 +61,10 @@ struct API {
     }
     
     @concurrent
-    static func deleteEmails(emails: [Email]) async throws -> Bool {
-        let ids = emails.map { $0.id }
+    static func deleteEmails(emails: [Email.ID]) async throws -> Bool {
         var req = await baseReq(url: "delete/alias")
-        req.httpBody = try await encoder.encode(ids)
         req.httpMethod = "POST"
+        req.httpBody = try await encoder.encode(emails)
         return try await send(basicRequest: req)
     }
     

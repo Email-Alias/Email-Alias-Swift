@@ -235,6 +235,16 @@
         }
       }
     },
+    "Delete email" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Mail löschen"
+          }
+        }
+      }
+    },
     "Description" : {
       "localizations" : {
         "de" : {
@@ -599,6 +609,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reload"
+          }
+        }
+      }
+    },
+    "Reload emails" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Mail neuladen"
           }
         }
       }

@@ -18,20 +18,23 @@ struct ContentView: View {
         Group {
             if registered {
                 EmailView(registered: $registered, showSettings: $showSettings)
-                    .onAppear {
-                        menuState.reloadButtonEnabled = true
-                        menuState.clearCacheButtonEnabled = true
-                        menuState.logoutButtonEnabled = true
-                    }
+                    .menuStateUpdate(menuState: menuState, value: true)
             }
             else {
                 RegisterView(registered: $registered, showSettings: $showSettings)
-                    .onAppear {
-                        menuState.reloadButtonEnabled = false
-                        menuState.clearCacheButtonEnabled = false
-                        menuState.logoutButtonEnabled = false
-                    }
+                    .menuStateUpdate(menuState: menuState, value: false)
             }
+        }
+    }
+}
+
+private extension View {
+    func menuStateUpdate(menuState: MenuState, value: Bool) -> some View {
+        onAppear {
+            menuState.addButtonEnabled = value
+            menuState.reloadButtonEnabled = value
+            menuState.clearCacheButtonEnabled = value
+            menuState.logoutButtonEnabled = value
         }
     }
 }

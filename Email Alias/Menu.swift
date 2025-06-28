@@ -41,6 +41,7 @@ struct AppMenu: Commands {
     @Environment(\.modelContext) private var modelContext
     @FocusedValue(\.generateRandomAlias) private var generateRandomAlias
     @FocusedValue(\.searchEmail) private var searchEmail
+    @FocusedValue(\.deleteEmail) private var deleteEmail
     
     @Binding var showSettings: Bool
     @Binding var addButtonEnabled: Bool
@@ -63,13 +64,18 @@ struct AppMenu: Commands {
             }
             .keyboardShortcut(KeyEquivalent("+"), modifiers: .command)
             .disabled(!addButtonEnabled)
-            Button("Reload") {
+            Button("Reload emails") {
                 Task {
                     await reload(modelContext: modelContext) {}
                 }
             }
             .keyboardShortcut(KeyEquivalent("R"), modifiers: .command)
             .disabled(!reloadButtonEnabled)
+            Button("Delete email") {
+                deleteEmail?()
+            }
+            .keyboardShortcut(.delete, modifiers: .command)
+            .disabled(deleteEmail == nil)
             Button("Search email") {
                 searchEmail?()
             }
@@ -106,6 +112,10 @@ struct SearchActionKey: FocusedValueKey {
     typealias Value = () -> Void
 }
 
+struct DeleteActionKey: FocusedValueKey {
+    typealias Value = () -> Void
+}
+
 extension FocusedValues {
     var generateRandomAlias: RandomAliasActionKey.Value? {
         get { self[RandomAliasActionKey.self] }
@@ -115,5 +125,10 @@ extension FocusedValues {
     var searchEmail: SearchActionKey.Value? {
         get { self[SearchActionKey.self] }
         set { self[SearchActionKey.self] = newValue }
+    }
+
+    var deleteEmail: DeleteActionKey.Value? {
+        get { self[DeleteActionKey.self] }
+        set { self[DeleteActionKey.self] = newValue }
     }
 }

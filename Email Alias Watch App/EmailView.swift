@@ -123,17 +123,15 @@ struct EmailView: View {
     
     private func deleteEmail(indicies: IndexSet) async {
         do {
+            let emails = indicies.map { self.emails[$0].id }
+            try modelContext.delete(model: Email.self, where: #Predicate { emails.contains($0.id) } )
             if !API.testMode {
-                let emails = indicies.map { self.emails[$0] }
                 try await Task {
                     if !(try await API.deleteEmails(emails: emails)) {
                         showDeleteAlert = true
                         return
                     }
                 }.value
-            }
-            for i in indicies {
-                modelContext.delete(emails[i])
             }
         }
         catch {

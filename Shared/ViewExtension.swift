@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(macOS)
 extension View {
     func language(_ language: Language) -> some View {
         Group {
@@ -19,3 +20,4 @@ extension View {
         }
     }
 }
+#endif

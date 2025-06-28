@@ -72,7 +72,7 @@
 		26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */; };
 		26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A02B8B61B800ADD94E /* SettingsView.swift */; };
 		26A4F7A72B8B8D1E00ADD94E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7A62B8B8D1E00ADD94E /* Language.swift */; };
-		26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */; };
+		26A4F7B12B8C892300ADD94E /* EmailContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7B02B8C892300ADD94E /* EmailContextMenu.swift */; };
 		26A4F7E12B8D17F900ADD94E /* third-party-licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */; };
 		26A4F7E32B8D18B500ADD94E /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4F7E22B8D18B500ADD94E /* LicenseView.swift */; };
 		26A927432B887434002B27E1 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927422B887434002B27E1 /* KeychainService.swift */; };
@@ -246,7 +246,7 @@
 		26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		26A4F7A02B8B61B800ADD94E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		26A4F7A62B8B8D1E00ADD94E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWindowContextMenu.swift; sourceTree = "<group>"; };
+		26A4F7B02B8C892300ADD94E /* EmailContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailContextMenu.swift; sourceTree = "<group>"; };
 		26A4F7DF2B8D17F600ADD94E /* third-party-licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "third-party-licenses.txt"; sourceTree = "<group>"; };
 		26A4F7E22B8D18B500ADD94E /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		26A927422B887434002B27E1 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
@@ -338,21 +338,21 @@
 		26095ABF2AE92A3000F272EA /* Email Alias */ = {
 			isa = PBXGroup;
 			children = (
-				262A4C9C2DFDB77400B46035 /* Menu.swift */,
-				262A4C9A2DFD96D700B46035 /* AddViewWindow.swift */,
 				262A4C982DFD936F00B46035 /* EmailHelper.swift */,
 				26A4F79E2B8B606E00ADD94E /* ColorScheme.swift */,
 				26A927892B88AA24002B27E1 /* WatchCommunicator.swift */,
 				26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */,
 				26D0D4142B8DE063002A99CD /* LanguageExtension.swift */,
 				2677E3112B95144200AC9DCA /* ColorExtension.swift */,
-				26A4F7B02B8C892300ADD94E /* NewWindowContextMenu.swift */,
+				26A4F7B02B8C892300ADD94E /* EmailContextMenu.swift */,
 				266332C32B9DFEB200C3F380 /* CheckboxToggleStyle.swift */,
 				26095AC02AE92A3000F272EA /* EmailAliasApp.swift */,
+				262A4C9C2DFDB77400B46035 /* Menu.swift */,
 				26A4F7A02B8B61B800ADD94E /* SettingsView.swift */,
 				264EF30E2B6BEEDD00070BCB /* ContentView.swift */,
 				264EF3102B6BEF2A00070BCB /* RegisterView.swift */,
 				26095AC22AE92A3000F272EA /* EmailView.swift */,
+				262A4C9A2DFD96D700B46035 /* AddViewWindow.swift */,
 				26095AD82AE9791400F272EA /* AddView.swift */,
 				26A927852B88A47B002B27E1 /* EmailDetailView.swift */,
 				2677E30F2B950EA100AC9DCA /* Toast.swift */,
@@ -674,7 +674,7 @@
 				2677E3122B95144200AC9DCA /* ColorExtension.swift in Sources */,
 				26D0D4132B8DE010002A99CD /* ColorSchemeExtension.swift in Sources */,
 				262A4C9B2DFD96DB00B46035 /* AddViewWindow.swift in Sources */,
-				26A4F7B12B8C892300ADD94E /* NewWindowContextMenu.swift in Sources */,
+				26A4F7B12B8C892300ADD94E /* EmailContextMenu.swift in Sources */,
 				26095AC32AE92A3000F272EA /* EmailView.swift in Sources */,
 				26122E9E2E045159007E059B /* LocalizationTableName.swift in Sources */,
 				264EF30F2B6BEEDD00070BCB /* ContentView.swift in Sources */,

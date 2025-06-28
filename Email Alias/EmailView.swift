@@ -110,11 +110,13 @@ struct EmailView: View {
     @State private var reloading = false
     #endif
     
+    @State private var selectedEmail: Email.ID? = nil
+    
     @FocusState private var searchFocused
     
     var body: some View {
         NavigationSplitView {
-            EmailList(search: search) { email in
+            EmailList(search: search, selectedEmail: $selectedEmail) { email in
                 copyEmailToPasteboard(email) {
                     showCopyAlert = true
                 }
@@ -133,15 +135,30 @@ struct EmailView: View {
                     #endif
                     SettingsButton(showSettings: $showSettings)
                     AddEmailButton(emails: emails, showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
+                    Button {
+                        Task {
+                            await reload(modelContext: modelContext) {
+                                showReloadAlert = true
+                            }
+                        }
+                    } label: {
+                        Label("Reload", systemImage: "arrow.clockwise")
+                    }
                     LogoutButton(registered: $registered)
                 }
                 .addViewAlerts(showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
                 .navigationSplitViewColumnWidth(ideal: 300)
         } detail: {
-            Text("Click on an email to show a qr code with the address")
-                .multilineTextAlignment(.center)
-                .padding()
-                .navigationTitle("Select email")
+            if let selectedEmail {
+                EmailDetailView(id: selectedEmail)
+                    .id(selectedEmail)
+            }
+            else {
+                Text("Click on an email to show a qr code with the address")
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .navigationTitle("Select email")
+            }
         }
         .focusedValue(\.searchEmail) {
             searchFocused.toggle()
@@ -164,85 +181,83 @@ struct EmailList: View {
     let search: String
     let copyEmailToPasteboard: (String) -> Void
     
+    @Binding var selectedEmail: Email.ID?
+    
     @Environment(\.openWindow) private var openWindow
     @Environment(\.modelContext) private var modelContext
     
     @Query private var emails: [Email]
     
     @State private var showDeleteConfirmAlert = false
-    @State private var emailsToDelete: [Email]? = nil
+    @State private var emailsToDelete: [Email.ID]? = nil
     @State private var showDeleteAlert = false
     @State private var showEditAlert = false
     
-    init(search: String, copyEmailToPasteboard: @escaping (String) -> Void) {
+    init(search: String, selectedEmail: Binding<Email.ID?>, copyEmailToPasteboard: @escaping (String) -> Void) {
         let search = search.lowercased()
         self.search = search
         self._emails = Query(filter: #Predicate<Email> { search.isEmpty || $0.address.localizedStandardContains(search) || $0.privateComment.localizedStandardContains(search) }, sort: \Email.privateComment, animation: .default)
+        self._selectedEmail = selectedEmail
         self.copyEmailToPasteboard = copyEmailToPasteboard
     }
     
     var body: some View {
-        List {
+        List(selection: $selectedEmail) {
             ForEach(emails) { email in
-                NavigationLink {
-                    EmailDetailView(id: email.id)
-                } label: {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(email.privateComment)
-                            Text(email.address)
-                                .font(.caption)
-                        }
-                        Spacer()
-                        Button {
-                            copyEmailToPasteboard(email.address)
-                        } label: {
-                            Image(systemName: "rectangle.portrait.on.rectangle.portrait")
-                                .accessibilityLabel(Text("Copy to clipboard"))
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        Toggle(
-                            "",
-                            isOn: .init {
-                                email.active
-                            } set: { value in
-                                email.active = value
-                                Task {
-                                    do {
-                                        if !(try await API.update(email: email)) {
-                                            showEditAlert = true
-                                        }
-                                    }
-                                    catch {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(email.privateComment)
+                        Text(email.address)
+                            .font(.caption)
+                    }
+                    Spacer()
+                    Button {
+                        copyEmailToPasteboard(email.address)
+                    } label: {
+                        Image(systemName: "rectangle.portrait.on.rectangle.portrait")
+                            .accessibilityLabel(Text("Copy to clipboard"))
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    Toggle(
+                        "",
+                        isOn: .init {
+                            email.active
+                        } set: { value in
+                            email.active = value
+                            Task {
+                                do {
+                                    if !(try await API.update(email: email)) {
                                         showEditAlert = true
                                     }
                                 }
+                                catch {
+                                    showEditAlert = true
+                                }
                             }
-                        )
-                        .toggleStyle(CheckboxToggleStyle())
-                    }
-                    .newWindowContextMenu {
-                        openWindow(id: "email_detail", value: email.id)
-                    }
+                        }
+                    )
+                    .toggleStyle(CheckboxToggleStyle())
                 }
-#if os(macOS)
+                .emailContextMenu(email: email, openWindow: openWindow) { email in
+                    showDeleteAlert(emails: [email.id])
+                }
+                #if os(macOS)
                 .swipeActions {
                     Button {
-                        emailsToDelete = [email]
-                        showDeleteConfirmAlert = true
+                        showDeleteAlert(emails: [email.id])
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
                     .tint(Color.red)
                 }
-#endif
+                #endif
+                .tag(email.id)
             }
-#if !os(macOS)
+            #if !os(macOS)
             .onDelete { indexSet in
-                emailsToDelete = indexSet.map { emails[$0] }
-                showDeleteConfirmAlert = true
+                showDeleteAlert(emails: indexSet.map { emails[$0].id })
             }
-#endif
+            #endif
         }
         .confirmationDialog("Do you really want to delete the email?", isPresented: $showDeleteConfirmAlert, titleVisibility: .visible) {
             Button("Yes", role: .destructive) {
@@ -260,19 +275,32 @@ struct EmailList: View {
         .alert("Error at updating the email", isPresented: $showEditAlert) {
             EmptyView()
         }
+        .focusedValue(\.deleteEmail, selectedEmail == nil ? nil : {
+            showDeleteAlert(emails: [selectedEmail!])
+        })
+        #if os(macOS)
+        .onDeleteCommand {
+            if let selectedEmail {
+                showDeleteAlert(emails: [selectedEmail])
+            }
+        }
+        #endif
     }
     
-    private func deleteEmails(emails: [Email]) async {
+    private func showDeleteAlert(emails: [Email.ID]) {
+        emailsToDelete = emails
+        showDeleteConfirmAlert = true
+    }
+    
+    private func deleteEmails(emails: [Email.ID]) async {
         Task {
             do {
+                try modelContext.delete(model: Email.self, where: #Predicate { emails.contains($0.id) } )
                 if !API.testMode {
                     if !(try await API.deleteEmails(emails: emails)) {
                         showDeleteAlert = true
                         return
                     }
-                }
-                for email in emails {
-                    modelContext.delete(email)
                 }
             }
             catch {

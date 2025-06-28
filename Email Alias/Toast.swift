@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Toast: ViewModifier {
+private struct Toast: ViewModifier {
     let message: LocalizedStringKey
 
     @Binding var isShowing: Bool

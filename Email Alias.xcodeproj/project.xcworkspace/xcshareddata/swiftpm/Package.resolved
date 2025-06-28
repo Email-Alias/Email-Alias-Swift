@@ -4,7 +4,7 @@
     {
       "identity" : "inappsettingskit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/futuretap/InAppSettingsKit",
+      "location" : "https://github.com/futuretap/InAppSettingsKit.git",
       "state" : {
         "revision" : "b60959ac31106a404774f641e063096014269188",
         "version" : "3.8.5"

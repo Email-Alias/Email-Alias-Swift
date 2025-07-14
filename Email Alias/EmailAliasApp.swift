@@ -14,6 +14,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         true
     }
 }
+#else
+private typealias Window = WindowGroup
 #endif
 
 @main
@@ -60,19 +62,11 @@ struct EmailAliasApp: App {
         }
         .modelContainer(container)
         
-        #if os(macOS)
         Window("Add email", id: "add_email") {
             AddViewWindow()
                 .environmentObject(menuState)
         }
         .modelContainer(container)
-        #else
-        WindowGroup("Add email", id: "add_email") {
-            AddViewWindow()
-                .environmentObject(menuState)
-        }
-        .modelContainer(container)
-        #endif
         
         #if os(macOS)
         Settings {

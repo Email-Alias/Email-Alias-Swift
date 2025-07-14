@@ -25,7 +25,7 @@ private func bytesFromLittleEndian(_ length: UInt32) -> [UInt8] {
     ]
 }
 
-func readMessageData() -> [String: String]? {
+private func readMessageData() -> [String: String]? {
     let stdin = FileHandle.standardInput
 
     let lenBytes = stdin.readData(ofLength: 4)
@@ -49,12 +49,12 @@ private func sendMessageData(_ data: [String: Any]) {
     }
 }
 
-if let aliases = getAliases() {
-    let messageData = readMessageData()
-    switch messageData?["type"] {
-    case "getAliases":
+let messageData = readMessageData()
+switch messageData?["type"] {
+case "getAliases":
+    if let aliases = getAliases() {
         sendMessageData(aliases)
-    default:
-        break
     }
+default:
+    break
 }

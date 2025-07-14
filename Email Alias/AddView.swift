@@ -125,14 +125,17 @@ struct AddView: View {
 }
 
 extension View {
-    func addViewAlerts(showReloadAlert: Binding<Bool>, showAddAlert: Binding<Bool>, showCopyAlert: Binding<Bool>) -> some View {
+    func addViewAlerts(showReloadAlert: Binding<Bool>, showAddAlert: Binding<Bool>) -> some View {
         alert("Error at loading the emails", isPresented: showReloadAlert) {
             EmptyView()
         }
         .alert("Error at adding an email", isPresented: showAddAlert) {
             EmptyView()
         }
-        .toast(message: "Email copied to clipboard", isShowing: showCopyAlert)
+    }
+    
+    func addViewToast(showCopyAlert: Binding<Bool>) -> some View {
+        toast(message: "Email copied to clipboard", isShowing: showCopyAlert)
     }
     
     func conditionalFocusedValue<Value>(

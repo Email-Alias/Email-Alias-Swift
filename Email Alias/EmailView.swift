@@ -146,7 +146,11 @@ struct EmailView: View {
                     }
                     LogoutButton(registered: $registered)
                 }
-                .addViewAlerts(showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
+                .addViewAlerts(showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert)
+                .addViewToast(showCopyAlert: $showCopyAlert)
+                .onReceive(NotificationCenter.default.publisher(for: .showCopyEmailToast), perform: { _ in
+                    showCopyAlert = true
+                })
                 .navigationSplitViewColumnWidth(ideal: 300)
         } detail: {
             if let selectedEmail {

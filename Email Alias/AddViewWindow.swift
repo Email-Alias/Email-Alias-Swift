@@ -13,7 +13,6 @@ struct AddViewWindow: View {
     @Query(sort: \Email.privateComment, animation: .default) private var emails: [Email]
     
     @State private var showAddAlert = false
-    @State private var showCopyAlert = false
     @State private var showReloadAlert = false
 
     var body: some View {
@@ -21,11 +20,15 @@ struct AddViewWindow: View {
             await addEmail(emails: emails, modelContext: modelContext, address: address, comment: comment, additionalGoto: additionalGoto) {
                 showAddAlert = true
             } showCopyAlert: {
-                showCopyAlert = true
+                NotificationCenter.default.post(name: .showCopyEmailToast, object: nil)
             } showReloadAlert: {
                 showReloadAlert = true
             }
         }
-        .addViewAlerts(showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
+        .addViewAlerts(showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert)
     }
+}
+
+extension Notification.Name {
+    static let showCopyEmailToast = Notification.Name("showCopyEmailToast")
 }

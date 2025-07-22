@@ -14,7 +14,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         true
     }
 }
-#else
+#elseif os(iOS)
 private typealias Window = WindowGroup
 #endif
 

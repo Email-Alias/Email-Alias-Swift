@@ -6,13 +6,13 @@
 //
 
 extension String {
-    static let domain = "domain"
-    static let email = "email"
-    static let apiKey = "apiKey"
-    static let nextID = "nextID"
-    static let registered = "registered"
+    nonisolated static let domain = "domain"
+    nonisolated static let email = "email"
+    nonisolated static let apiKey = "apiKey"
+    nonisolated static let nextID = "nextID"
+    nonisolated static let registered = "registered"
     #if os(macOS)
-    static let language = "language"
+    nonisolated static let language = "language"
     #endif
-    static let colorScheme = "colorScheme"
+    nonisolated static let colorScheme = "colorScheme"
 }

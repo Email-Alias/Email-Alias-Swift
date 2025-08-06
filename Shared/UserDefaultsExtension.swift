@@ -9,8 +9,8 @@ import Foundation
 
 extension UserDefaults {
     #if os(macOS)
-    @MainActor static let shared = UserDefaults(suiteName: "BHUJ88RV68.com.opdehipt.Email-Alias")!
+    static let shared = UserDefaults(suiteName: "BHUJ88RV68.com.opdehipt.Email-Alias")!
     #else
-    @MainActor static let shared = UserDefaults(suiteName: "group.com.opdehipt.Email-Alias")!
+    static let shared = UserDefaults(suiteName: "group.com.opdehipt.Email-Alias")!
     #endif
 }

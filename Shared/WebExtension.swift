@@ -13,7 +13,6 @@ import UIKit
 
 private let jsonEncoder = JSONEncoder()
 
-@MainActor
 func getAliases() -> [String: Any]? {
     var emailFetchDescriptor = FetchDescriptor<Email>()
     emailFetchDescriptor.predicate = #Predicate { $0.active }

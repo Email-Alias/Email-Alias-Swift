@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Combine
 
 class MenuState: ObservableObject {
     @Published var addButtonEnabled = false
@@ -15,7 +16,6 @@ class MenuState: ObservableObject {
     @Published var logoutButtonEnabled = false
 }
 
-@MainActor
 func logout(modelContext: ModelContext, dismissWindow: DismissWindowAction, setRegistered: () -> ()) {
     do {
         try modelContext.delete(model: Email.self)

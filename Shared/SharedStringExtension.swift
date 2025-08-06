@@ -13,12 +13,12 @@ import CoreImage.CIFilterBuiltins
 #endif
 
 extension String {
-    static func random(length: Int) -> String {
+    static nonisolated func random(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._"
         return String((0..<length).map { _ in letters.randomElement()! })
     }
     
-    func generateQRCode() -> NativeImage? {
+    nonisolated func generateQRCode() -> NativeImage? {
         #if os(watchOS)
         guard let qr = try? QRCode.encode(text: self, ecl: .high) else {
             return nil

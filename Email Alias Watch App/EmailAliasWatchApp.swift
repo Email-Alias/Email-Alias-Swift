@@ -28,7 +28,7 @@ class AppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
             let _ = save(valueToKeychain: userInfo[.apiKey] as! String, withKey: .apiKey)
             
             Task {
-                if await API.testMode {
+                if API.testMode {
                     UserDefaults.standard.set(7, forKey: .nextID)
                     await MainActor.run {
                         insertTestEmails(into: context)

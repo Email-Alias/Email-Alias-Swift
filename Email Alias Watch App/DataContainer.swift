@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-@MainActor
 final class DataContainer {
     static let shared = DataContainer()
     let container: ModelContainer

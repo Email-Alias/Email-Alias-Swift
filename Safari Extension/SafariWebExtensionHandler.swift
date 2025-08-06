@@ -9,7 +9,6 @@ import SafariServices
 import SwiftData
 
 class SafariWebExtensionHandler: NSObject, @MainActor NSExtensionRequestHandling {
-    @MainActor
     func beginRequest(with context: NSExtensionContext) {
         let request = context.inputItems.first as? NSExtensionItem
 

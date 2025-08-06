@@ -8,7 +8,6 @@
 import SwiftData
 import SwiftUI
 
-@MainActor
 func addEmail(emails: [Email], modelContext: ModelContext, address: String, comment: String, additionalGoto: String, showAddAlert: @escaping () -> (), showCopyAlert: @escaping () -> (), showReloadAlert: @escaping () -> ()) async -> Bool {
     if API.testMode {
         let goto = UserDefaults.standard.string(forKey: .email)!
@@ -43,7 +42,6 @@ func addEmail(emails: [Email], modelContext: ModelContext, address: String, comm
     }
 }
 
-@MainActor
 func copyEmailToPasteboard(_ email: String, showCopyAlert: () -> ()) {
     #if os(macOS)
     NSPasteboard.general.declareTypes([.string], owner: nil)
@@ -54,7 +52,6 @@ func copyEmailToPasteboard(_ email: String, showCopyAlert: () -> ()) {
     showCopyAlert()
 }
 
-@MainActor
 func reload(modelContext: ModelContext, showReloadAlert: () -> ()) async {
     if !API.testMode {
         do {

@@ -8,7 +8,6 @@
 import SwiftData
 import SwiftUI
 
-@MainActor
 func insertTestEmails(into modelContext: ModelContext) {
     let testEmails = [
         Email(id: 0, address: "vAcd8HJOj6h9Hfq9n8F0@example.com", privateComment: "Apple", goto: [API.testEmail]),

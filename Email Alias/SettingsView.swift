@@ -46,7 +46,7 @@ struct SettingsView: View {
 }
 #else
 private struct SettingsView: UIViewControllerRepresentable {
-    class Coordinator: IASKAbstractSettingsStore, IASKSettingsDelegate {
+    nonisolated class Coordinator: IASKAbstractSettingsStore, IASKSettingsDelegate {
         private let modelContext: ModelContext
         nonisolated private var defaults: UserDefaults {
             get {
@@ -60,6 +60,7 @@ private struct SettingsView: UIViewControllerRepresentable {
 
         func settingsViewControllerDidEnd(_ settingsViewController: IASKAppSettingsViewController) {}
         
+        @MainActor
         func settingsViewController(_ settingsViewController: IASKAppSettingsViewController, buttonTappedFor specifier: IASKSpecifier) {
             switch (specifier.key) {
             case "clear_email_cache":

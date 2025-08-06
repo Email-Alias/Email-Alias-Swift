@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-    @MainActor
     var localized: String {
         #if os(macOS)
         if let language = Language(rawValue: UserDefaults.shared.integer(forKey: .language)) {

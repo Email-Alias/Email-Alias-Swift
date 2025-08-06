@@ -7,7 +7,7 @@
 
 import Foundation
 
-func save(valueToKeychain value: String, withKey key: String) -> OSStatus {
+nonisolated func save(valueToKeychain value: String, withKey key: String) -> OSStatus {
     guard let data = value.data(using: .utf8) else {
         return errSecParam
     }
@@ -23,7 +23,7 @@ func save(valueToKeychain value: String, withKey key: String) -> OSStatus {
     return SecItemAdd(query as CFDictionary, nil)
 }
 
-func loadFromKeychain(withKey key: String) -> String? {
+nonisolated func loadFromKeychain(withKey key: String) -> String? {
     let query = [
         kSecClass as String       : kSecClassGenericPassword,
         kSecAttrAccount as String : key,
@@ -42,7 +42,7 @@ func loadFromKeychain(withKey key: String) -> String? {
     }
 }
 
-func removeFromKeychain(withKey key: String) -> OSStatus {
+nonisolated func removeFromKeychain(withKey key: String) -> OSStatus {
     let query = [
         kSecClass as String       : kSecClassGenericPassword,
         kSecAttrAccount as String : key

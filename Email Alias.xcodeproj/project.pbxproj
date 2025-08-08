@@ -41,7 +41,6 @@
 		262A4BEE2DFACBA300B46035 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BD72DFACBA300B46035 /* _locales */; };
 		262A4BEF2DFACBA300B46035 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BD82DFACBA300B46035 /* background.js */; };
 		262A4BF02DFACBA300B46035 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BD92DFACBA300B46035 /* content.js */; };
-		262A4BF12DFACBA300B46035 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BDA2DFACBA300B46035 /* images */; };
 		262A4BF22DFACBA300B46035 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BDB2DFACBA300B46035 /* manifest.json */; };
 		262A4BF42DFACBA300B46035 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 262A4BDE2DFACBA300B46035 /* Localizable.xcstrings */; };
 		262A4BF52DFACBA300B46035 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A4BDF2DFACBA300B46035 /* SafariWebExtensionHandler.swift */; };
@@ -213,7 +212,6 @@
 		262A4BD72DFACBA300B46035 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		262A4BD82DFACBA300B46035 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		262A4BD92DFACBA300B46035 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
-		262A4BDA2DFACBA300B46035 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		262A4BDB2DFACBA300B46035 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		262A4BDD2DFACBA300B46035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		262A4BDE2DFACBA300B46035 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -385,7 +383,6 @@
 				262A4BD72DFACBA300B46035 /* _locales */,
 				262A4BD82DFACBA300B46035 /* background.js */,
 				262A4BD92DFACBA300B46035 /* content.js */,
-				262A4BDA2DFACBA300B46035 /* images */,
 				262A4BDB2DFACBA300B46035 /* manifest.json */,
 			);
 			path = Resources;
@@ -638,7 +635,6 @@
 				262A4BEE2DFACBA300B46035 /* _locales in Resources */,
 				262A4BEF2DFACBA300B46035 /* background.js in Resources */,
 				262A4BF02DFACBA300B46035 /* content.js in Resources */,
-				262A4BF12DFACBA300B46035 /* images in Resources */,
 				262A4BF22DFACBA300B46035 /* manifest.json in Resources */,
 				262A4BF42DFACBA300B46035 /* Localizable.xcstrings in Resources */,
 			);

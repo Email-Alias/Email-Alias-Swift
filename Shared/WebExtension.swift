@@ -13,27 +13,34 @@ import UIKit
 
 private let jsonEncoder = JSONEncoder()
 
-func getAliases() -> [String: Any]? {
+func getAliases() async -> [String: Any]? {
     var emailFetchDescriptor = FetchDescriptor<Email>()
     emailFetchDescriptor.predicate = #Predicate { $0.active }
     emailFetchDescriptor.sortBy = [SortDescriptor(\.privateComment)]
-    guard let emails = try? DataContainer.shared.container.mainContext.fetch(emailFetchDescriptor) else {
-        return nil
+    let json = await MainActor.run {
+        var json: String? = nil
+        
+        if let emails = try? DataContainer.shared.container.mainContext.fetch(emailFetchDescriptor) {
+            if let jsonData = try? jsonEncoder.encode(emails) {
+                json = String(data: jsonData, encoding: .utf8)
+            }
+        }
+        
+        return json
     }
-    
-    guard let jsonData = try? jsonEncoder.encode(emails) else {
-        return nil
-    }
-    
-    guard let json = String(data: jsonData, encoding: .utf8) else {
+    guard let json else {
         return nil
     }
     
     #if os(iOS)
-    let isPhone = UIDevice.current.userInterfaceIdiom == .phone
+    let isPhone = await UIDevice.current.userInterfaceIdiom == .phone
     #else
     let isPhone = false
     #endif
+    
+    let (colorScheme, registered) = await MainActor.run {
+        (UserDefaults.shared.integer(forKey: .colorScheme), UserDefaults.shared.bool(forKey: .registered))
+    }
     
     return [
         "messages": [
@@ -46,9 +53,9 @@ func getAliases() -> [String: Any]? {
             "registeredTitle": "registeredTitle".localized,
             "licenses": "licenses".localized,
         ],
-        "colorScheme": UserDefaults.shared.integer(forKey: .colorScheme),
+        "colorScheme": colorScheme,
         "isPhone": isPhone,
-        "registered": UserDefaults.shared.bool(forKey: .registered),
+        "registered": registered,
         "emails": json,
     ]
 }

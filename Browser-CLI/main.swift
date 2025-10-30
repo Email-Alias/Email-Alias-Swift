@@ -52,8 +52,10 @@ private func sendMessageData(_ data: [String: Any]) {
 let messageData = readMessageData()
 switch messageData?["type"] {
 case "getAliases":
-    if let aliases = getAliases() {
-        sendMessageData(aliases)
+    Task {
+        if let aliases = await getAliases() {
+            sendMessageData(aliases)
+        }
     }
 default:
     break

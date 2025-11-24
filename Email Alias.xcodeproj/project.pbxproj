@@ -99,7 +99,6 @@
 		26A927862B88A47B002B27E1 /* EmailDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927852B88A47B002B27E1 /* EmailDetailView.swift */; };
 		26A927882B88A647002B27E1 /* EmailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927872B88A647002B27E1 /* EmailInfoView.swift */; };
 		26A9278A2B88AA24002B27E1 /* WatchCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A927892B88AA24002B27E1 /* WatchCommunicator.swift */; };
-		26BAC7AE2C199CAE00B7B471 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAC7AD2C199CA700B7B471 /* StringExtension.swift */; };
 		26D0D4132B8DE010002A99CD /* ColorSchemeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0D4122B8DE010002A99CD /* ColorSchemeExtension.swift */; };
 		26D0D4152B8DE063002A99CD /* LanguageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0D4142B8DE063002A99CD /* LanguageExtension.swift */; };
 		26E3ECF52E035D8500ECF2E6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E3ECF22E035D8500ECF2E6 /* main.swift */; };
@@ -663,7 +662,6 @@
 				26874F842B7E8768006D2DB4 /* UserDefaultsExtension.swift in Sources */,
 				26A927632B888B18002B27E1 /* TestEmails.swift in Sources */,
 				26A927672B888BEE002B27E1 /* SharedUserDefaultKeys.swift in Sources */,
-				26BAC7AE2C199CAE00B7B471 /* StringExtension.swift in Sources */,
 				26095AD42AE93F4500F272EA /* SharedStringExtension.swift in Sources */,
 				26A4F7A12B8B61B800ADD94E /* SettingsView.swift in Sources */,
 				26A4F79F2B8B606E00ADD94E /* ColorScheme.swift in Sources */,

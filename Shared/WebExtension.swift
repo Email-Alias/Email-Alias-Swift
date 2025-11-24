@@ -11,7 +11,11 @@ import SwiftData
 import UIKit
 #endif
 
-private let jsonEncoder = JSONEncoder()
+private let jsonEncoder = {
+    let jsonEncoder = JSONEncoder()
+    jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+    return jsonEncoder
+}()
 
 func getAliases() async -> [String: Any]? {
     var emailFetchDescriptor = FetchDescriptor<Email>()
@@ -42,16 +46,16 @@ func getAliases() async -> [String: Any]? {
         (UserDefaults.shared.integer(forKey: .colorScheme), UserDefaults.shared.bool(forKey: .registered))
     }
     
-    return [
+    return await [
         "messages": [
-            "copiedToClipboard": "copiedToClipboard".localized,
-            "ok": "ok".localized,
-            "register": "register".localized,
-            "highlightedEmails": "highlightedEmails".localized,
-            "remainingEmails": "remainingEmails".localized,
-            "unregisteredTitle": "unregisteredTitle".localized,
-            "registeredTitle": "registeredTitle".localized,
-            "licenses": "licenses".localized,
+            "copiedToClipboard": "copiedToClipboard".localized(),
+            "ok": "ok".localized(),
+            "register": "register".localized(),
+            "highlightedEmails": "highlightedEmails".localized(),
+            "remainingEmails": "remainingEmails".localized(),
+            "unregisteredTitle": "unregisteredTitle".localized(),
+            "registeredTitle": "registeredTitle".localized(),
+            "licenses": "licenses".localized(),
         ],
         "colorScheme": colorScheme,
         "isPhone": isPhone,

@@ -8,9 +8,12 @@
 import Foundation
 
 extension String {
-    var localized: String {
+    func localized() async -> String {
         #if os(macOS)
-        if let language = Language(rawValue: UserDefaults.shared.integer(forKey: .language)) {
+        let languageRaw = await MainActor.run {
+            UserDefaults.shared.integer(forKey: .language)
+        }
+        if let language = Language(rawValue: languageRaw) {
             if let locale = language.locale?.language.languageCode?.identifier {
                 if let path = Bundle.main.path(forResource: locale, ofType: "lproj") {
                     if let bundle = Bundle(path: path) {

@@ -45,17 +45,14 @@ private func sendMessageData(_ data: [String: Any]) {
         stdout.write(Data(lengthBytes))
         
         stdout.write(jsonData)
-        stdout.synchronizeFile()
     }
 }
 
 let messageData = readMessageData()
 switch messageData?["type"] {
 case "getAliases":
-    Task {
-        if let aliases = await getAliases() {
-            sendMessageData(aliases)
-        }
+    if let aliases = await getAliases() {
+        sendMessageData(aliases)
     }
 default:
     break

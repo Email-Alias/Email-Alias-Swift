@@ -38,7 +38,7 @@ struct EmailAliasApp: App {
     var body: some Scene {
         let container = DataContainer.shared.container
         
-        WindowGroup {
+        Window("Emails", id: "main") {
             ContentView(showSettings: $showSettings)
                 .preferredColorScheme(colorScheme.systemTheme)
                 #if os(macOS)

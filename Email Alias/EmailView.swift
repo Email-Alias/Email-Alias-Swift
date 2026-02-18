@@ -16,7 +16,7 @@ struct AddEmailButton: View {
     @Binding var showCopyAlert: Bool
 
     var body: some View {
-        #if os(macOS)
+        #if os(macOS) || os(visionOS)
         AddEmailButtonWindow()
         #elseif os(iOS)
         Group {
@@ -27,13 +27,11 @@ struct AddEmailButton: View {
                 AddEmailButtonWindow()
             }
         }
-        #else
-        AddEmailButtonLocal(emails: emails, showReloadAlert: $showReloadAlert, showAddAlert: $showAddAlert, showCopyAlert: $showCopyAlert)
         #endif
     }
 }
 
-#if os(macOS) || os(iOS)
+#if os(macOS) || os(iOS) || os(visionOS)
 struct AddEmailButtonWindow: View {
     @Environment(\.openWindow) private var openWindow
     
@@ -47,7 +45,7 @@ struct AddEmailButtonWindow: View {
 }
 #endif
 
-#if os(iOS) || os(visionOS)
+#if os(iOS)
 struct AddEmailButtonLocal: View {
     @Environment(\.modelContext) private var modelContext
     

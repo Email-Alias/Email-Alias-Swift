@@ -15,6 +15,7 @@ struct AddView: View {
     @EnvironmentObject private var menuState: MenuState
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.openURL) private var openURL
     @AppStorage(.email) private var email = ""
     
     @FocusState private var aliasFocused: Bool
@@ -104,12 +105,8 @@ struct AddView: View {
             (self.comment, self.additionalGoto)
         }
         if let domain = email.split(separator: "@").last, await addEmail("\(alias)@\(domain)", comment, additionalGoto) {
-            #if os(macOS)
+            #if os(macOS) || os(visionOS)
             openWindow(id: "main")
-            #elseif os(iOS)
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                openWindow(id: "main")
-            }
             #endif
             dismiss()
             self.comment = ""

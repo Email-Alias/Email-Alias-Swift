@@ -52,7 +52,7 @@ nonisolated struct API {
     static func addEmail(emails: [Email], address: String, privateComment: String, additionalGotos: [String]) async throws -> Bool {
         let goto = UserDefaults.standard.string(forKey: .email)!
         let gotoString = (additionalGotos + [goto]).joined(separator: ",")
-        let email = EmailReq(active: true, sogoVisible: false, address: address, goto: gotoString, privateComment: privateComment)
+        let email = EmailReq(active: true, sogoVisible: false, senderAllowed: true, address: address, goto: gotoString, privateComment: privateComment)
         var req = baseReq(url: "add/alias")
         req.httpMethod = "POST"
         req.httpBody = try encoder.encode(email)
@@ -86,6 +86,7 @@ nonisolated struct API {
 private nonisolated struct EmailReq: Encodable {
     let active: Bool
     let sogoVisible: Bool
+    let senderAllowed: Bool
     let address: String
     let goto: String
     let privateComment: String
